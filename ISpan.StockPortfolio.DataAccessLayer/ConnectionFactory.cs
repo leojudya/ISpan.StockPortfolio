@@ -21,11 +21,13 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 
 	public class SqlServerConnectionFactory : IConnectionFactory
 	{
+		private static string _connectionString = ConfigurationManager.ConnectionStrings["SqlServer"]?.ToString();
 		public IDbConnection GetConnection()
 		{
-			return new SqlConnection(GetConnectionString());
+			return new SqlConnection(_connectionString);
 		}
 
-		private string GetConnectionString() => ConfigurationManager.ConnectionStrings["SqlServer"].ToString();
+		public static void SetConnectionString(string connectionString) => _connectionString = connectionString;
+		
 	}
 }

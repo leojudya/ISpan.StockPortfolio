@@ -74,16 +74,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormAddStockToPortfolio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormAddStockToPortfolio.Designer.cs">
+      <DependentUpon>FormAddStockToPortfolio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPortfolio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPortfolio.Designer.cs">
+      <DependentUpon>FormPortfolio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPortfolioStockDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPortfolioStockDetail.Designer.cs">
+      <DependentUpon>FormPortfolioStockDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSignUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSignUp.Designer.cs">
+      <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddStockToPortfolio.resx">
+      <DependentUpon>FormAddStockToPortfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPortfolio.resx">
+      <DependentUpon>FormPortfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPortfolioStockDetail.resx">
+      <DependentUpon>FormPortfolioStockDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSignUp.resx">
+      <DependentUpon>FormSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,6 +148,10 @@
     <ProjectReference Include="..\ISpan.StockPortfolio.DataAccessLayer\ISpan.StockPortfolio.DataAccessLayer.csproj">
       <Project>{cfd56672-188d-4d7f-82f3-a0e47509a17c}</Project>
       <Name>ISpan.StockPortfolio.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISpan.StockPortfolio.Services\ISpan.StockPortfolio.Services.csproj">
+      <Project>{ceb33d44-e50c-4d3d-957d-3452a144ad01}</Project>
+      <Name>ISpan.StockPortfolio.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
