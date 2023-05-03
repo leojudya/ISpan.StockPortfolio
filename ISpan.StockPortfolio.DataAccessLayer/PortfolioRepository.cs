@@ -14,7 +14,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 
         public IEnumerable<PortfolioDto> Search(int userId)
         {
-			string sql = @"SELECT * FROM Portfolio WHERE UserId = @UserId";
+			string sql = @"SELECT p.*, s.[StockSymbol] AS [Symbol] FROM Portfolio p JOIN Stocks s ON p.StockId = s.Id WHERE UserId = @UserId";
 
 			using (var conn = _connectionFactory.GetConnection())
 			{

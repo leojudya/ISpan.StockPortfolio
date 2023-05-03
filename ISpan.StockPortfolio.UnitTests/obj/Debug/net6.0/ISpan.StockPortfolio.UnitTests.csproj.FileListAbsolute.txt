@@ -121,7 +121,6 @@ C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\run
 C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\ISpan.StockPortfolio.UnitTests.dll.config
 C:\Users\ispan\Source\Repos\ISpan.StockPortfolio\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\testhost.exe
 C:\Users\ispan\Source\Repos\ISpan.StockPortfolio\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\testhost.dll
 C:\Users\ispan\Source\Repos\ISpan.StockPortfolio\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\NUnit3.TestAdapter.dll
@@ -246,3 +245,5 @@ C:\Users\ispan\Source\Repos\ISpan.StockPortfolio\ISpan.StockPortfolio.UnitTests\
 C:\Users\ispan\Source\Repos\ISpan.StockPortfolio\ISpan.StockPortfolio.UnitTests\obj\Debug\net6.0\ISpan.StockPortfolio.UnitTests.genruntimeconfig.cache
 C:\Users\ispan\Source\Repos\ISpan.StockPortfolio\ISpan.StockPortfolio.UnitTests\obj\Debug\net6.0\ref\ISpan.StockPortfolio.UnitTests.dll
 C:\Users\ispan\Source\Repos\ISpan.StockPortfolio\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.UnitTests\bin\Debug\net6.0\BCrypt.Net-Next.dll

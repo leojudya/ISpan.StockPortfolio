@@ -7,6 +7,7 @@ using System.Data;
 using AutoMapper;
 using System.Collections.Generic;
 
+
 namespace ISpan.StockPortfolio.UnitTests
 {
 	
@@ -106,6 +107,15 @@ namespace ISpan.StockPortfolio.UnitTests
 
 			Assert.That(user == expectedUser);
 
+		}
+
+		[Test]
+		public void ±KΩX≈Á√“()
+		{
+			var user = _userRepository.Get("atuny0@sohu.com");
+			var hashedPassword = user.Password;
+
+			Assert.That(BCrypt.Net.BCrypt.Verify("9uQFF1Lh", hashedPassword));
 		}
 	}
 }

@@ -2,6 +2,7 @@ import pyodbc
 import pandas
 import os.path
 import os
+import bcrypt
 
 # Some other example server values are
 # server = 'localhost\sqlexpress' # for a named instance
@@ -46,9 +47,20 @@ def generate_users():
 
     for index, row in rows.iterrows():
         record = row["users"]
-        cursor.execute("""INSERT INTO Users(Email, Password, CreatedTime) VALUES (?, ?, DEFAULT)""", record['email'], record['password'])
+        cursor.execute("""INSERT INTO Users(Email, Password, CreatedTime) VALUES (?, ?, DEFAULT)""", record['email'], hash_password(record['password']))
 
     cnxn.commit()
     cursor.close()
+
+
+def hash_password(pwd):
+    passwd = bytes(pwd, encoding='utf-8')
+
+    salt = bcrypt.gensalt()
+    hashed = bcrypt.hashpw(passwd, salt)
+
+    return hashed.decode()
+
+
 
 generate_users()
