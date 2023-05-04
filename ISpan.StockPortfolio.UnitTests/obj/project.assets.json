@@ -1879,19 +1879,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\leoju\\.nuget\\packages\\": {}
+    "C:\\Users\\ispan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leoju\\Desktop\\stock\\ISpan.StockPortfolio.UnitTests\\ISpan.StockPortfolio.UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\ispan\\Desktop\\C#入門\\ISpan.StockPortfolio\\ISpan.StockPortfolio.UnitTests\\ISpan.StockPortfolio.UnitTests.csproj",
       "projectName": "ISpan.StockPortfolio.UnitTests",
-      "projectPath": "C:\\Users\\leoju\\Desktop\\stock\\ISpan.StockPortfolio.UnitTests\\ISpan.StockPortfolio.UnitTests.csproj",
-      "packagesPath": "C:\\Users\\leoju\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leoju\\Desktop\\stock\\ISpan.StockPortfolio.UnitTests\\obj\\",
+      "projectPath": "C:\\Users\\ispan\\Desktop\\C#入門\\ISpan.StockPortfolio\\ISpan.StockPortfolio.UnitTests\\ISpan.StockPortfolio.UnitTests.csproj",
+      "packagesPath": "C:\\Users\\ispan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ispan\\Desktop\\C#入門\\ISpan.StockPortfolio\\ISpan.StockPortfolio.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\leoju\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ispan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1905,8 +1905,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\leoju\\Desktop\\stock\\ISpan.StockPortfolio.DataAccessLayer\\ISpan.StockPortfolio.DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\leoju\\Desktop\\stock\\ISpan.StockPortfolio.DataAccessLayer\\ISpan.StockPortfolio.DataAccessLayer.csproj"
+            "C:\\Users\\ispan\\Desktop\\C#入門\\ISpan.StockPortfolio\\ISpan.StockPortfolio.DataAccessLayer\\ISpan.StockPortfolio.DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\ispan\\Desktop\\C#入門\\ISpan.StockPortfolio\\ISpan.StockPortfolio.DataAccessLayer\\ISpan.StockPortfolio.DataAccessLayer.csproj"
             }
           }
         }
@@ -1970,7 +1970,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

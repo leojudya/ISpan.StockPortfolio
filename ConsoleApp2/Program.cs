@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ISpan.StockPortfolio.Services;
+using System.Text.Json;
+using ISpan.StockPortfolio.DataAccessLayer.Dtos;
 
 namespace ConsoleApp2
 {
 	internal class Program
 	{
-		static async Task Main(string[] args)
+		static void Main(string[] args)
 		{
-			var s = new TwseStockInfoService();
-			var a = await s.Test(new string[] { "2330", "00878" });
-			Console.WriteLine(a);
+
 		}
 	}
 }

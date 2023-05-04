@@ -34,7 +34,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 
 		}
 
-		public int Insert(PortfolioDto dto)
+		public int Insert(PortfolioAddDto dto)
 		{
             #region SQL Statement
             string sql =

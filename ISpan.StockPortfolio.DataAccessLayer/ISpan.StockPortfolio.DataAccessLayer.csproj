@@ -97,6 +97,7 @@
         ..\ISpan.StockPortfolio.App\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration">
       <Private>False</Private>
     </Reference>
@@ -228,12 +229,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionFactory.cs" />
+    <Compile Include="Core\User.cs" />
+    <Compile Include="Dtos\ClosingPriceDto.cs" />
     <Compile Include="Dtos\PortfolioDto.cs" />
     <Compile Include="Dtos\StockDto.cs" />
-    <Compile Include="Dtos\StockJsonDto.cs" />
     <Compile Include="Dtos\TwseStockInfoDto.cs" />
-    <Compile Include="Dtos\UserLoginDto.cs" />
-    <Compile Include="Dtos\UserSignUpDto.cs" />
+    <Compile Include="Dtos\UserDto.cs" />
+    <Compile Include="Models\PortfolioAddViewModel.cs" />
     <Compile Include="Models\PortfolioViewModel.cs" />
     <Compile Include="PortfolioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -244,6 +246,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\ISpan.StockPortfolio.App\packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets" Condition="Exists('..\ISpan.StockPortfolio.App\packages\Microsoft.Data.SqlClient.SNI.5.1.0\build\net462\Microsoft.Data.SqlClient.SNI.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

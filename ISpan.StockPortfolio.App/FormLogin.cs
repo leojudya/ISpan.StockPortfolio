@@ -46,7 +46,9 @@ namespace ISpan.StockPortfolio.App
 				return;
 			}
 
-			var frm = new FormPortfolio();
+			var user = _userService.GetLoginUser(textBoxEmail.Text);
+
+			var frm = new FormPortfolio(user.Id);
 			frm.ShowDialog();
 		}
 
@@ -92,6 +94,14 @@ namespace ISpan.StockPortfolio.App
 		private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			e.Cancel = false;
+		}
+
+		private void textBoxPassword_KeyDown(object sender, KeyEventArgs e)
+		{
+			if (e.KeyCode == Keys.Enter)
+			{
+				buttonLogin_Click(textBoxPassword, EventArgs.Empty);
+			}
 		}
 	}
 }

@@ -90,9 +90,12 @@
     <Compile Include="TwseStockInfoService.cs" />
     <Compile Include="TwseUrlHelper.cs" />
     <Compile Include="UserService.cs" />
-    <Compile Include="ValidatorHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ISpan.StockPortfolio.Common\ISpan.StockPortfolio.Common.csproj">
+      <Project>{d74d3753-a1e4-44dc-b619-9e058bc537c5}</Project>
+      <Name>ISpan.StockPortfolio.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ISpan.StockPortfolio.DataAccessLayer\ISpan.StockPortfolio.DataAccessLayer.csproj">
       <Project>{cfd56672-188d-4d7f-82f3-a0e47509a17c}</Project>
       <Name>ISpan.StockPortfolio.DataAccessLayer</Name>

@@ -1,4 +1,5 @@
 ﻿using ISpan.StockPortfolio.Services;
+using ISpan.StockPortfolio.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

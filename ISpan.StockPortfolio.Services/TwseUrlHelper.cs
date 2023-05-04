@@ -10,7 +10,7 @@ namespace ISpan.StockPortfolio.Services
 {
 	public static class TwseUrlHelper
 	{
-		public static string GetUrl(string apiUrl, string exCh)
+		public static string GetUrlWithQueryString(string apiUrl, string exCh)
 		{
 			var queryParameters = new Dictionary<string, string>
 			{

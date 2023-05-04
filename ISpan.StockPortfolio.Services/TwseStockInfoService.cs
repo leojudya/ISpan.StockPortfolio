@@ -8,18 +8,34 @@ using System.Text.Json;
 using ISpan.StockPortfolio.DataAccessLayer.Dtos;
 using AutoMapper;
 using System.Globalization;
+using ISpan.StockPortfolio.Common;
 
 namespace ISpan.StockPortfolio.Services
 {
 	public class TwseStockInfoService
 	{
-		private static readonly string apiUrl = "https://mis.twse.com.tw/stock/api/getStockInfo.jsp";
+		private static readonly string apiTwseUrl = "https://mis.twse.com.tw/stock/api/getStockInfo.jsp";
+		private static readonly string apiAvgClosingPriceUrl = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_AVG_ALL";
 		private static readonly HttpClient client = new HttpClient();
+		private static MapperConfiguration _mapperConfiguration;
+		private static IMapper _mapper;
+
+		public TwseStockInfoService()
+		{
+			_mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<ServiceMapper>());
+			_mapper = _mapperConfiguration.CreateMapper();
+		}
 		private async Task<string> FetchStocks(IEnumerable<string> symbols)
 		{
 			string exchQuery = TwseUrlHelper.GetExCh(symbols);
-			string url = TwseUrlHelper.GetUrl(apiUrl, exchQuery);
+			string url = TwseUrlHelper.GetUrlWithQueryString(apiTwseUrl, exchQuery);
 
+			return await FetchDataString(url);
+		}
+
+
+		private async Task<string> FetchDataString(string url)
+		{
 			try
 			{
 				using (HttpResponseMessage response = await client.GetAsync(url))
@@ -37,36 +53,36 @@ namespace ISpan.StockPortfolio.Services
 			return string.Empty;
 		}
 
+		private IEnumerable<ClosingPriceDto> ParseClosingPrices(string json)
+		{
+			var rows = JsonSerializer.Deserialize<IEnumerable<ClosingPriceRawDto>>(json);
+			return _mapper.Map<IEnumerable<ClosingPriceDto>>(rows);
+		}
+
 		private IEnumerable<TwseStockInfoDto> ParseStocks(string json)
 		{
 			var stockRoot = JsonSerializer.Deserialize<StockRoot>(json);
 			var msgArray = stockRoot.msgArray;
 
-			var config = new MapperConfiguration(cfg =>
-				cfg.CreateMap<StockRawInfo, TwseStockInfoDto>()
-			   .ForMember(x => x.Symbol, y => y.MapFrom(o => o.c))
-			   .ForMember(x => x.Name, y => y.MapFrom(o => o.n))
-			   .ForMember(x => x.OpeningPrice, y => y.MapFrom(o => o.o))
-			   .ForMember(x => x.HighestPrice, y => y.MapFrom(o => o.h))
-			   .ForMember(x => x.LowestPrice, y => y.MapFrom(o => o.l))
-			   .ForMember(x => x.MarketPrice, y => y.MapFrom(o => o.z))
-			   .ForMember(x => x.BidPrice, y => y.MapFrom(o => o.a.Split('_')[0]))
-			   .ForMember(x => x.AskPrice, y => y.MapFrom(o => o.b.Split('_')[0]))
-			   .ForMember(x => x.TradingVolume, y => y.MapFrom(o => o.v))
-			   .ForMember(x => x.LastUpdated, y => y.MapFrom(o => DateTime.ParseExact($"{o.d} {o.t}", "yyyyMMdd HH:mm:ss", CultureInfo.InvariantCulture)))
-			);
-
-
-			var mapper = config.CreateMapper();
-			var result = mapper.Map<IEnumerable<TwseStockInfoDto>>(msgArray);
-
-			return result;
+			return _mapper.Map<IEnumerable<TwseStockInfoDto>>(msgArray);
+		}
+		private async Task<string> FetchClosingPrice()
+		{
+			var closingJson = await FetchDataString(apiAvgClosingPriceUrl);
+			return closingJson;
 		}
 
-		public async Task<IEnumerable<TwseStockInfoDto>> Test(IEnumerable<string> symbols)
+		public async Task<IEnumerable<TwseStockInfoDto>> GetRealtimeStocksInfo(IEnumerable<string> symbols)
 		{
 			var json = await FetchStocks(symbols);
 			return ParseStocks(json);
 		}
+
+		public async Task<IEnumerable<ClosingPriceDto>> GetClosingPrices()
+		{
+			var json = await FetchClosingPrice();
+			return ParseClosingPrices(json);
+		}
+
 	}
 }

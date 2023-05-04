@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper.QueryableExtensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,45 @@ namespace ISpan.StockPortfolio.Services
 			errorMessage = "email address must be valid email address format.\n" +
 			   "For example 'someone@example.com' ";
 			return false;
+		}
+
+		public static bool ValidBuyPrice(string buyPrice, out string errorMessage)
+		{
+			if (string.IsNullOrEmpty(buyPrice))
+			{
+				errorMessage = "價格不得為空!";
+				return false;
+			}
+			if (!decimal.TryParse(buyPrice, out decimal p))
+			{
+				errorMessage = "價格格式錯誤";
+				return false;
+			}
+
+			errorMessage = "";
+			return true;
+		}
+
+		public static bool IsValidPositiveInt32(string quantity, out string errorMessage)
+		{
+			if (string.IsNullOrEmpty(quantity))
+			{
+				errorMessage = "數量不得為空!";
+				return false;
+			}
+			if (!int.TryParse(quantity, out int p))
+			{
+				errorMessage = "數量格式錯誤";
+				return false;
+			}
+			if (p < 1)
+			{
+				errorMessage = "數量不能小於一!";
+				return false;
+			}
+
+			errorMessage = "";
+			return true;
 		}
 
 	}
