@@ -17,10 +17,10 @@ namespace ISpan.StockPortfolio.Services
 		private static readonly PortfolioRepository _portfolioRepository = new PortfolioRepository();
 		private static readonly TwseStockInfoService _twseStockInfoService = new TwseStockInfoService();
 
-		public async Task<IEnumerable<PortfolioViewModel>> GetPortfolio(int userId)
+		public async Task<IEnumerable<PortfolioDetailViewModel>> GetPortfolio(int userId)
 		{
 			var portfolioDtos = _portfolioRepository.Search(userId);
-			var symbols = portfolioDtos.Select(dto => dto.Symbol);
+			var symbols = portfolioDtos.Select(dto => dto.Symbol).ToHashSet();
 			var twseStockInfos = await _twseStockInfoService.GetRealtimeStocksInfo(symbols);
 			var portfolioViewModels = await MergeTwseInfoAndPofoilo(portfolioDtos, twseStockInfos);
 
@@ -36,7 +36,7 @@ namespace ISpan.StockPortfolio.Services
 			return _portfolioRepository.Insert(result);
 		}
 
-		private async Task<IEnumerable<PortfolioViewModel>> MergeTwseInfoAndPofoilo(IEnumerable<PortfolioDto> portfolioDtos, IEnumerable<TwseStockInfoDto> twseStockInfoDtos)
+		private async Task<IEnumerable<PortfolioDetailViewModel>> MergeTwseInfoAndPofoilo(IEnumerable<PortfolioDto> portfolioDtos, IEnumerable<TwseStockInfoDto> twseStockInfoDtos)
 		{
 			var closingPrices = await _twseStockInfoService.GetClosingPrices();
 
@@ -44,7 +44,7 @@ namespace ISpan.StockPortfolio.Services
 				twseStockInfoDtos,
 				portfolioDto => portfolioDto.Symbol,
 				twseStockInfoDto => twseStockInfoDto.Symbol,
-				(p, t) => new PortfolioViewModel(){
+				(p, t) => new PortfolioDetailViewModel(){
 						Name = t.Name,
 						Symbol = p.Symbol,
 						ClosingPrice = closingPrices.Where(cp => cp.Code == t.Symbol).Select(cp => cp.ClosingPrice).First() ?? (decimal?)null,
@@ -56,6 +56,9 @@ namespace ISpan.StockPortfolio.Services
 						LowestPrice = t.LowestPrice,
 						TradingVolume = t.TradingVolume,
 						LastUpdated = t.LastUpdated,
+						Quantity = p.Quantity,
+						Price = p.Price,
+						PurchaseDate = p.PurchaseDate,
 						Profit = null,
 				}
 			);

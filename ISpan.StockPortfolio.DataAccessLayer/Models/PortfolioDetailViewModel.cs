@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ISpan.StockPortfolio.DataAccessLayer.Models
 {
-
-	public class PortfolioViewModel
+	public class PortfolioDetailViewModel
 	{
 		[Display(Name = "股名")]
 		[DisplayName("股名")]
@@ -47,9 +46,20 @@ namespace ISpan.StockPortfolio.DataAccessLayer.Models
 		[Display(Name = "交易量")]
 		[DisplayName("交易量")]
 		public int TradingVolume { get; set; }
+		
+		[Display(Name = "成本價")]
+		[DisplayName("成本價")]
+		public decimal? Price { get; set; }
+		[Display(Name = "股數")]
+		[DisplayName("股數")]
+		public int? Quantity { get; set; }
+
 		[Display(Name = "損益")]
 		[DisplayName("損益")]
 		public int? Profit { get; set; }
+		[Display(Name = "購買日")]
+		[DisplayName("購買日")]
+		public DateTime? PurchaseDate { get; set; }
 		[Display(Name = "最後更新")]
 		[DisplayName("最後更新")]
 		public DateTime LastUpdated { get; set; }

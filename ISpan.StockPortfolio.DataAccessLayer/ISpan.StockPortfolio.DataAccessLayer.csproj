@@ -236,6 +236,7 @@
     <Compile Include="Dtos\TwseStockInfoDto.cs" />
     <Compile Include="Dtos\UserDto.cs" />
     <Compile Include="Models\PortfolioAddViewModel.cs" />
+    <Compile Include="Models\PortfolioDetailViewModel.cs" />
     <Compile Include="Models\PortfolioViewModel.cs" />
     <Compile Include="PortfolioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

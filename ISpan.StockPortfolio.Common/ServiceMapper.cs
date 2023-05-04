@@ -31,6 +31,8 @@ namespace ISpan.StockPortfolio.Common
 			CreateMap<PortfolioAddViewModel, PortfolioAddDto>();
 			CreateMap<ClosingPriceRawDto, ClosingPriceDto>()
 				.ForMember(x => x.ClosingPrice, y => y.MapFrom(o => string.IsNullOrEmpty(o.ClosingPrice) ? (decimal?)null : decimal.Parse(o.ClosingPrice)));
+
+			CreateMap<PortfolioDetailViewModel, PortfolioViewModel>();
 		}
 	}
 }

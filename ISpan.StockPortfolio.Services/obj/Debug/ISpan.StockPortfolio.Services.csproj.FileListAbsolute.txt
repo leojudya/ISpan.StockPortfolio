@@ -105,3 +105,5 @@ C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Servic
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\obj\Debug\ISpan.StockPortfolio.Services.pdb
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\ISpan.StockPortfolio.Common.dll
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\ISpan.StockPortfolio.Common.pdb
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.Services\bin\Debug\ISpan.StockPortfolio.Common.dll
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.Services\bin\Debug\ISpan.StockPortfolio.Common.pdb

@@ -52,7 +52,7 @@ namespace ISpan.StockPortfolio.App
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(26, 13);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(118, 24);
+			this.label1.Size = new System.Drawing.Size(151, 30);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Select Stock";
 			// 
@@ -61,7 +61,7 @@ namespace ISpan.StockPortfolio.App
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(8, 5);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(53, 24);
+			this.label2.Size = new System.Drawing.Size(68, 30);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Price";
 			// 
@@ -70,7 +70,7 @@ namespace ISpan.StockPortfolio.App
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(8, 75);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(88, 24);
+			this.label3.Size = new System.Drawing.Size(112, 30);
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Quantity";
 			// 
@@ -79,7 +79,7 @@ namespace ISpan.StockPortfolio.App
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(8, 146);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(138, 24);
+			this.label4.Size = new System.Drawing.Size(176, 30);
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Purchase Date";
 			// 
@@ -89,7 +89,7 @@ namespace ISpan.StockPortfolio.App
 			this.dateTimePickerPurchase.Location = new System.Drawing.Point(12, 173);
 			this.dateTimePickerPurchase.MaxDate = new System.DateTime(2023, 5, 3, 0, 0, 0, 0);
 			this.dateTimePickerPurchase.Name = "dateTimePickerPurchase";
-			this.dateTimePickerPurchase.Size = new System.Drawing.Size(332, 32);
+			this.dateTimePickerPurchase.Size = new System.Drawing.Size(332, 39);
 			this.dateTimePickerPurchase.TabIndex = 2;
 			this.dateTimePickerPurchase.Value = new System.DateTime(2023, 5, 3, 0, 0, 0, 0);
 			// 
@@ -99,7 +99,7 @@ namespace ISpan.StockPortfolio.App
 			this.comboBoxStocks.FormattingEnabled = true;
 			this.comboBoxStocks.Location = new System.Drawing.Point(30, 40);
 			this.comboBoxStocks.Name = "comboBoxStocks";
-			this.comboBoxStocks.Size = new System.Drawing.Size(332, 32);
+			this.comboBoxStocks.Size = new System.Drawing.Size(332, 37);
 			this.comboBoxStocks.TabIndex = 4;
 			this.comboBoxStocks.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.comboBoxStocks_Format);
 			this.comboBoxStocks.Leave += new System.EventHandler(this.comboBoxStocks_Leave);
@@ -118,7 +118,7 @@ namespace ISpan.StockPortfolio.App
 			// 
 			this.maskedTextBoxPrice.Location = new System.Drawing.Point(12, 40);
 			this.maskedTextBoxPrice.Name = "maskedTextBoxPrice";
-			this.maskedTextBoxPrice.Size = new System.Drawing.Size(332, 32);
+			this.maskedTextBoxPrice.Size = new System.Drawing.Size(332, 39);
 			this.maskedTextBoxPrice.TabIndex = 6;
 			this.maskedTextBoxPrice.Validating += new System.ComponentModel.CancelEventHandler(this.maskedTextBoxPrice_Validating);
 			this.maskedTextBoxPrice.Validated += new System.EventHandler(this.maskedTextBoxPrice_Validated);
@@ -127,7 +127,7 @@ namespace ISpan.StockPortfolio.App
 			// 
 			this.maskedTextBoxQuantity.Location = new System.Drawing.Point(12, 111);
 			this.maskedTextBoxQuantity.Name = "maskedTextBoxQuantity";
-			this.maskedTextBoxQuantity.Size = new System.Drawing.Size(332, 32);
+			this.maskedTextBoxQuantity.Size = new System.Drawing.Size(332, 39);
 			this.maskedTextBoxQuantity.TabIndex = 6;
 			this.maskedTextBoxQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.maskedTextBoxQuantity_Validating);
 			this.maskedTextBoxQuantity.Validated += new System.EventHandler(this.maskedTextBoxQuantity_Validated);
@@ -143,7 +143,7 @@ namespace ISpan.StockPortfolio.App
 			this.checkBoxCalculateProfit.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.checkBoxCalculateProfit.Location = new System.Drawing.Point(30, 90);
 			this.checkBoxCalculateProfit.Name = "checkBoxCalculateProfit";
-			this.checkBoxCalculateProfit.Size = new System.Drawing.Size(105, 28);
+			this.checkBoxCalculateProfit.Size = new System.Drawing.Size(131, 34);
 			this.checkBoxCalculateProfit.TabIndex = 7;
 			this.checkBoxCalculateProfit.Text = "計算損益";
 			this.checkBoxCalculateProfit.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@ namespace ISpan.StockPortfolio.App
 			// 
 			// FormAddStockToPortfolio
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
 			this.CausesValidation = false;
@@ -177,7 +177,7 @@ namespace ISpan.StockPortfolio.App
 			this.Font = new System.Drawing.Font("微軟正黑體", 14F);
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "FormAddStockToPortfolio";
-			this.Text = "FormAddStockToPortfolio";
+			this.Text = " ";
 			this.Load += new System.EventHandler(this.FormAddStockToPortfolio_Load);
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
 			this.panelBuyIn.ResumeLayout(false);

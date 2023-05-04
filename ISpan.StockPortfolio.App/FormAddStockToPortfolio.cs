@@ -75,6 +75,8 @@ namespace ISpan.StockPortfolio.App
 			};
 
 			_portfolioService.InsertPortfolio(portfolio);
+
+			DialogResult = DialogResult.OK;
 		}
 
 		private void checkBoxCalculateProfit_CheckedChanged(object sender, EventArgs e)
