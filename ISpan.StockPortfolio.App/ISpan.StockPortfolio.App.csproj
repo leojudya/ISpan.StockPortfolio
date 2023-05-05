@@ -51,6 +51,9 @@
     <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="HandyDandyWinFormUIControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\HandyDandyWinFormUIControls.1.0.1\lib\net48\HandyDandyWinFormUIControls.dll</HintPath>
     </Reference>
@@ -102,6 +105,12 @@
     <Compile Include="FormAddStockToPortfolio.Designer.cs">
       <DependentUpon>FormAddStockToPortfolio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditStockToPortfolio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditStockToPortfolio.Designer.cs">
+      <DependentUpon>FormEditStockToPortfolio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,10 +135,14 @@
     <Compile Include="FormSignUp.Designer.cs">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="IGrid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAddStockToPortfolio.resx">
       <DependentUpon>FormAddStockToPortfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditStockToPortfolio.resx">
+      <DependentUpon>FormEditStockToPortfolio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

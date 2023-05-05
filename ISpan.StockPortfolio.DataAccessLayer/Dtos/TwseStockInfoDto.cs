@@ -10,9 +10,9 @@ namespace ISpan.StockPortfolio.DataAccessLayer.Dtos
 	{
 		public string Symbol { get; set; }
 		public string Name { get; set; }
-		public decimal OpeningPrice { get; set; }
-		public decimal HighestPrice { get; set; }
-		public decimal LowestPrice { get; set; }
+		public decimal? OpeningPrice { get; set; }
+		public decimal? HighestPrice { get; set; }
+		public decimal? LowestPrice { get; set; }
 		public decimal MarketPrice { get; set; }
 		public decimal BidPrice { get; set; }
 		public decimal AskPrice { get; set; }

@@ -8,7 +8,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BC = BCrypt.Net.BCrypt;
 using System.Windows.Forms;
+using ISpan.StockPortfolio.DataAccessLayer.Models;
+using AutoMapper;
+using ISpan.StockPortfolio.DataAccessLayer.Dtos;
 
 namespace ISpan.StockPortfolio.App
 {
@@ -87,7 +91,18 @@ namespace ISpan.StockPortfolio.App
 				return;
 			}
 
-			_userService.Insert(textBoxEmail.Text, textBoxPassword.Text);
+			UserSignUpViewModel userSignUpViewModel = new UserSignUpViewModel()
+			{
+				Email = textBoxEmail.Text,
+				Password = BC.HashPassword(textBoxPassword.Text)
+			};
+
+
+			var mapper = new MapperConfiguration(cfg => cfg.AddProfile<ServiceMapper>()).CreateMapper();
+			var userSignUpDto = mapper.Map<UserSignUpDto>(userSignUpViewModel);
+			_userService.Create(userSignUpDto);
+
+
 			DialogResult = DialogResult.OK;
 		}
 	}

@@ -24,7 +24,7 @@ namespace ISpan.StockPortfolio.UnitTests
 		public void ´ú¸ÕGET()
 		{
 			var user = JsonSerializer.Serialize(_userRepository.Get("atuny0@sohu.com"));
-			var expectedUser = JsonSerializer.Serialize(new UserLoginDto()
+			var expectedUser = JsonSerializer.Serialize(new UserDto()
 			{
 				Id = 1,
 				Email = "atuny0@sohu.com",
@@ -48,7 +48,7 @@ namespace ISpan.StockPortfolio.UnitTests
 			var dbUser = _userRepository.Get("leojudya@gmail.com");
 			_userRepository.Delete(dbUser.Id);
 
-			var config = new MapperConfiguration(cfg => cfg.CreateMap<UserLoginDto, UserSignUpDto>()); 
+			var config = new MapperConfiguration(cfg => cfg.CreateMap<UserDto, UserSignUpDto>()); 
 			config.AssertConfigurationIsValid(); 
 			var mapper = config.CreateMapper(); 
 			var result = mapper.Map<UserSignUpDto>(dbUser);
@@ -87,7 +87,7 @@ namespace ISpan.StockPortfolio.UnitTests
 
 			_userRepository.Insert(mock);
 			var dbUser = _userRepository.Get("leojudya@gmail.com");
-			_userRepository.Update(new UserLoginDto
+			_userRepository.Update(new UserDto
 			{
 				Id = dbUser.Id,
 				Email = "leojudya@gmail.com",
@@ -98,7 +98,7 @@ namespace ISpan.StockPortfolio.UnitTests
 			_userRepository.Delete(dbUser.Id);
 
 			var user = JsonSerializer.Serialize(dbUpdatedUser);
-			var expectedUser = JsonSerializer.Serialize(new UserLoginDto
+			var expectedUser = JsonSerializer.Serialize(new UserDto
 			{
 				Id = dbUser.Id,
 				Email = "leojudya@gmail.com",

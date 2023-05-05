@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ISpan.StockPortfolio.DataAccessLayer.Core;
 
 namespace ISpan.StockPortfolio.DataAccessLayer
 {
@@ -12,24 +13,24 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 	{
 		private static IConnectionFactory _connectionFactory = new SqlServerConnectionFactory();
 
-        public IEnumerable<PortfolioDto> Search(int userId)
+        public IEnumerable<Portfolio> Search(int userId)
         {
-			string sql = @"SELECT p.*, s.[StockSymbol] AS [Symbol] FROM Portfolio p JOIN Stocks s ON p.StockId = s.Id WHERE UserId = @UserId";
+			string sql = @"SELECT p.*, s.[StockSymbol] AS [Symbol], s.[StockTypeId] FROM Portfolio p JOIN Stocks s ON p.StockId = s.Id WHERE UserId = @UserId";
 
 			using (var conn = _connectionFactory.GetConnection())
 			{
-				return conn.Query<PortfolioDto>(sql, new { UserId = userId });
+				return conn.Query<Portfolio>(sql, new { UserId = userId });
 			}
 
 		}
 
-		public PortfolioDto Get(int id)
+		public Portfolio Get(int id)
         {
             string sql = @"SELECT * FROM Portfolio WHERE Id = @Id";
 
 			using (var conn = _connectionFactory.GetConnection())
 			{
-				return conn.Query<PortfolioDto>(sql, new {Id = id}).FirstOrDefault();
+				return conn.Query<Portfolio>(sql, new {Id = id}).FirstOrDefault();
 			}
 
 		}
@@ -66,7 +67,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
             }
         }
 
-        public int Update(PortfolioDto dto)
+        public int Update(Portfolio dto)
         {
             string sql = @"UPDATE Portfolio SET [Quantity] = @Quantity, [Price] = @Price, [PurchaseDate] = @PurchaseDate WHERE Id = @Id;";
 

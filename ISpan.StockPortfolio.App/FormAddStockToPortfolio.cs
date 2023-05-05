@@ -76,6 +76,12 @@ namespace ISpan.StockPortfolio.App
 
 			_portfolioService.InsertPortfolio(portfolio);
 
+			IGrid owner = this.Owner as IGrid;
+			if (owner != null)
+			{
+				owner.Display();
+			}
+
 			DialogResult = DialogResult.OK;
 		}
 

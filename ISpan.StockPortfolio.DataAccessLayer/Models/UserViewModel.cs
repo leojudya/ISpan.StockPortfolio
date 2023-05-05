@@ -1,27 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ISpan.StockPortfolio.DataAccessLayer.Dtos
+namespace ISpan.StockPortfolio.DataAccessLayer.Models
 {
-	public class UserDto
+	public class UserLoginViewModel
 	{
-		public int Id { get; set; }
+		[Required]
+		[EmailAddress]
 		public string Email { get; set; }
-		public string Password { get; set; }
-	}
-	
-	public class UserSignUpDto
-	{
-		public string Email { get; set; }
+		[Required]
 		public string Password { get; set; }
 	}
 
-	public class UserLoginDto
+	public class UserSignUpViewModel
 	{
+		[Required]
+		[EmailAddress]
 		public string Email { get; set; }
+		[Required]
 		public string Password { get; set; }
 	}
+
 }

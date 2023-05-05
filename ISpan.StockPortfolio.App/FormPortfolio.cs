@@ -14,7 +14,7 @@ using ISpan.StockPortfolio.Common;
 
 namespace ISpan.StockPortfolio.App
 {
-	public partial class FormPortfolio : Form
+	public partial class FormPortfolio : Form, IGrid
 	{
 		private int _userId;
 		private static readonly PortfolioService _portfolioService = new PortfolioService();
@@ -32,17 +32,23 @@ namespace ISpan.StockPortfolio.App
 		private void linkLabelAdd_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			var frm = new FormAddStockToPortfolio(_userId);
+			frm.Owner = this;
 			frm.ShowDialog();
-
-			FormPortfolio_Load(linkLabelAdd, EventArgs.Empty);
 		}
 
-		private void FormPortfolio_Load(object sender, EventArgs e)
+		public void Display()
 		{
 			_portfolios = Task.Run(() => _portfolioService.GetPortfolio(_userId)).Result.ToList();
 			var portfolios = _mapper.Map<List<PortfolioViewModel>>(_portfolios);
 			dataGridView1.DataSource = GroupPortfolioParse(portfolios).ToList();
-				
+
+		}
+
+		private void FormPortfolio_Load(object sender, EventArgs e)
+		{
+			Display();
+
+			dataGridView1.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 			dataGridView1.Columns["UpAndDown"].DefaultCellStyle.Format = "+0.00;-0.00;0";
 			dataGridView1.Columns["UpAndDownPercentage"].DefaultCellStyle.Format = "+0.00%;-0.00%;0%";
 			dataGridView1.Columns["OpeningPrice"].DefaultCellStyle.Format = "N2";
@@ -52,6 +58,7 @@ namespace ISpan.StockPortfolio.App
 			dataGridView1.Columns["HighestPrice"].DefaultCellStyle.Format = "N2";
 			dataGridView1.Columns["LowestPrice"].DefaultCellStyle.Format = "N2";
 			dataGridView1.Columns["ClosingPrice"].DefaultCellStyle.Format = "N2";
+			dataGridView1.Columns["Profit"].DefaultCellStyle.Format = "+#,#;-#,#;0";
 			dataGridView1.Columns["LastUpdated"].DefaultCellStyle.Format = "yyyy/MM/dd HH:mm:ss";
 		}
 
@@ -63,8 +70,11 @@ namespace ISpan.StockPortfolio.App
 				if ((decimal)e.Value < 0m) e.CellStyle.ForeColor = Color.Green;
 			}
 
-			if (this.dataGridView1.Columns[e.ColumnIndex].Name == "UpAndDown")
+			if (this.dataGridView1.Columns[e.ColumnIndex].Name == "Profit")
 			{
+				if (e.Value == null) return;
+				if ((int)e.Value > 0m) e.CellStyle.ForeColor = Color.Red;
+				if ((int)e.Value < 0m) e.CellStyle.ForeColor = Color.Green;
 			}
 
 		}
@@ -110,8 +120,13 @@ namespace ISpan.StockPortfolio.App
 
 		private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			var frm = new FormPortfolioStockDetail(_portfolios.Where(p => p.Symbol == (string)dataGridView1.Rows[e.RowIndex].Cells["Symbol"].Value).ToList());
-			frm.ShowDialog();
+			if (e.RowIndex >= 0)
+			{
+				var frm = new FormPortfolioStockDetail(_portfolios.Where(p => p.Symbol == (string)dataGridView1.Rows[e.RowIndex].Cells["Symbol"].Value).ToList());
+				frm.Owner = this;
+				frm.ShowDialog();
+			}
+
 
 		}
 	}

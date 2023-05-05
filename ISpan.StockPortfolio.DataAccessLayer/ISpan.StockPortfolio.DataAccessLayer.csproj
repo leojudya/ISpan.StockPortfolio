@@ -229,19 +229,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionFactory.cs" />
+    <Compile Include="Core\Portfolio.cs" />
     <Compile Include="Core\User.cs" />
     <Compile Include="Dtos\ClosingPriceDto.cs" />
     <Compile Include="Dtos\PortfolioDto.cs" />
     <Compile Include="Dtos\StockDto.cs" />
     <Compile Include="Dtos\TwseStockInfoDto.cs" />
     <Compile Include="Dtos\UserDto.cs" />
-    <Compile Include="Models\PortfolioAddViewModel.cs" />
-    <Compile Include="Models\PortfolioDetailViewModel.cs" />
     <Compile Include="Models\PortfolioViewModel.cs" />
-    <Compile Include="PortfolioRepository.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Repos\PortfolioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StockRepository.cs" />
-    <Compile Include="UserRepository.cs" />
+    <Compile Include="Repos\StockRepository.cs" />
+    <Compile Include="Repos\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

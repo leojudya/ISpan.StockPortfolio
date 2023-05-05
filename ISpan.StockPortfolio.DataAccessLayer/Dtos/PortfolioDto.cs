@@ -9,6 +9,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer.Dtos
 	public class PortfolioDto
 	{
         public int Id { get; set; }
+		public int StockTypeId { get; set; }
         public int UserId { get; set; }
         public int StockId { get; set; }
         public string Symbol { get; set; }

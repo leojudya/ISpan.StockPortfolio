@@ -16,10 +16,19 @@ namespace ISpan.StockPortfolio.Services
 	{
 		private static readonly PortfolioRepository _portfolioRepository = new PortfolioRepository();
 		private static readonly TwseStockInfoService _twseStockInfoService = new TwseStockInfoService();
+		private static MapperConfiguration _mapperConfiguration;
+		private static IMapper _mapper;
+		
+		public PortfolioService()
+		{
+			_mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<ServiceMapper>());
+			_mapper = _mapperConfiguration.CreateMapper();
+		}
 
 		public async Task<IEnumerable<PortfolioDetailViewModel>> GetPortfolio(int userId)
 		{
-			var portfolioDtos = _portfolioRepository.Search(userId);
+			var portfolioEntities = _portfolioRepository.Search(userId);
+			var portfolioDtos = _mapper.Map<IEnumerable<PortfolioDto>>(portfolioEntities);
 			var symbols = portfolioDtos.Select(dto => dto.Symbol).ToHashSet();
 			var twseStockInfos = await _twseStockInfoService.GetRealtimeStocksInfo(symbols);
 			var portfolioViewModels = await MergeTwseInfoAndPofoilo(portfolioDtos, twseStockInfos);
@@ -45,6 +54,8 @@ namespace ISpan.StockPortfolio.Services
 				portfolioDto => portfolioDto.Symbol,
 				twseStockInfoDto => twseStockInfoDto.Symbol,
 				(p, t) => new PortfolioDetailViewModel(){
+						Id = p.Id,
+						StockTypeId = p.StockTypeId,
 						Name = t.Name,
 						Symbol = p.Symbol,
 						ClosingPrice = closingPrices.Where(cp => cp.Code == t.Symbol).Select(cp => cp.ClosingPrice).First() ?? (decimal?)null,
@@ -59,9 +70,14 @@ namespace ISpan.StockPortfolio.Services
 						Quantity = p.Quantity,
 						Price = p.Price,
 						PurchaseDate = p.PurchaseDate,
-						Profit = null,
+						Profit = null
 				}
-			);
+			).Select(pv =>
+			{
+				if (pv.Price != null)
+					pv.Profit = new StockFee(pv).NetProfit;
+				return pv;
+			});
 		}
 	}
 }

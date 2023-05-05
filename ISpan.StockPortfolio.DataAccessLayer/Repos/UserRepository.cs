@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using ISpan.StockPortfolio.DataAccessLayer.Dtos;
+using ISpan.StockPortfolio.DataAccessLayer.Core;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -12,18 +13,18 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 	public class UserRepository
 	{
 		private static IConnectionFactory _connectionFactory = new SqlServerConnectionFactory();
-		public UserLoginDto Get(string email)
+		public User Get(string email)
 		{
 			string sql = @"SELECT [Id], [Email], [Password] FROM Users WHERE [Email] = @Email";
 
 			using (var conn = _connectionFactory.GetConnection()) 
 			{ 
-				var user = conn.QueryFirstOrDefault<UserLoginDto>(sql, new { Email = email });
+				var user = conn.QueryFirstOrDefault<User>(sql, new { Email = email });
 				return user;
 			}
 		}
 
-		public int Insert(UserSignUpDto user)
+		public int Insert(User user)
 		{
 			string sql = @"INSERT INTO Users([Email], [Password], [CreatedTime]) VALUES (@Email, @Password, DEFAULT);";
 
@@ -43,7 +44,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 			}
 		}
 
-		public int Update(UserLoginDto user)
+		public int Update(UserDto user)
 		{
 			string sql = @"UPDATE Users SET [Email] = @Email, [Password] = @Password WHERE Id = @Id;";
 
