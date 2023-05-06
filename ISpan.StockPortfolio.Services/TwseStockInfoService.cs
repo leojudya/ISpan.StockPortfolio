@@ -15,7 +15,6 @@ namespace ISpan.StockPortfolio.Services
 	public class TwseStockInfoService
 	{
 		private static readonly string apiTwseUrl = "https://mis.twse.com.tw/stock/api/getStockInfo.jsp";
-		private static readonly string apiAvgClosingPriceUrl = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_AVG_ALL";
 		private static readonly HttpClient client = new HttpClient();
 		private static MapperConfiguration _mapperConfiguration;
 		private static IMapper _mapper;
@@ -53,12 +52,6 @@ namespace ISpan.StockPortfolio.Services
 			return string.Empty;
 		}
 
-		private IEnumerable<ClosingPriceDto> ParseClosingPrices(string json)
-		{
-			var rows = JsonSerializer.Deserialize<IEnumerable<ClosingPriceRawDto>>(json);
-			return _mapper.Map<IEnumerable<ClosingPriceDto>>(rows);
-		}
-
 		private IEnumerable<TwseStockInfoDto> ParseStocks(string json)
 		{
 			var stockRoot = JsonSerializer.Deserialize<StockRoot>(json);
@@ -66,22 +59,12 @@ namespace ISpan.StockPortfolio.Services
 
 			return _mapper.Map<IEnumerable<TwseStockInfoDto>>(msgArray);
 		}
-		private async Task<string> FetchClosingPrice()
-		{
-			var closingJson = await FetchDataString(apiAvgClosingPriceUrl);
-			return closingJson;
-		}
+
 
 		public async Task<IEnumerable<TwseStockInfoDto>> GetRealtimeStocksInfo(IEnumerable<string> symbols)
 		{
 			var json = await FetchStocks(symbols);
 			return ParseStocks(json);
-		}
-
-		public async Task<IEnumerable<ClosingPriceDto>> GetClosingPrices()
-		{
-			var json = await FetchClosingPrice();
-			return ParseClosingPrices(json);
 		}
 
 	}

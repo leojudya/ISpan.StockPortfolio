@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutoMapper;
 using ISpan.StockPortfolio.Common;
+using System.Runtime.CompilerServices;
+using ISpan.StockPortfolio.DataAccessLayer.Core;
 
 namespace ISpan.StockPortfolio.App
 {
@@ -38,10 +40,11 @@ namespace ISpan.StockPortfolio.App
 
 		public void Display()
 		{
+			
 			_portfolios = Task.Run(() => _portfolioService.GetPortfolio(_userId)).Result.ToList();
 			var portfolios = _mapper.Map<List<PortfolioViewModel>>(_portfolios);
 			dataGridView1.DataSource = GroupPortfolioParse(portfolios).ToList();
-
+			SearchBySymbolOrName();
 		}
 
 		private void FormPortfolio_Load(object sender, EventArgs e)
@@ -129,5 +132,24 @@ namespace ISpan.StockPortfolio.App
 
 
 		}
+
+		private void SearchBySymbolOrName()
+		{
+			var portfolios = GroupPortfolioParse(_mapper.Map<List<PortfolioViewModel>>(_portfolios)).ToList();
+
+			if (textBoxSearch.Text == string.Empty)
+			{
+				dataGridView1.DataSource = portfolios;
+			}
+
+			dataGridView1.DataSource = portfolios.Where(p => p.Name.Contains(textBoxSearch.Text) || p.Symbol.Contains(textBoxSearch.Text)).ToList();
+
+		}
+
+		private void textBoxSearch_TextChanged(object sender, EventArgs e)
+		{
+			SearchBySymbolOrName();
+		}
 	}
+
 }

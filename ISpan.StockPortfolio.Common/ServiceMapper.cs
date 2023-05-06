@@ -27,6 +27,7 @@ namespace ISpan.StockPortfolio.Common
 			   .ForMember(x => x.BidPrice, y => y.MapFrom(o => o.a.Split('_')[0]))
 			   .ForMember(x => x.AskPrice, y => y.MapFrom(o => o.b.Split('_')[0]))
 			   .ForMember(x => x.TradingVolume, y => y.MapFrom(o => o.v))
+			   .ForMember(x => x.ClosingPrice, y => y.MapFrom(o => o.y == "-" ? null : o.y))
 			   .ForMember(x => x.LastUpdated, y => y.MapFrom(o => DateTime.ParseExact($"{o.d} {o.t}", "yyyyMMdd HH:mm:ss", CultureInfo.InvariantCulture)));
 
 			CreateMap<PortfolioAddViewModel, PortfolioAddDto>()
@@ -42,6 +43,9 @@ namespace ISpan.StockPortfolio.Common
 			CreateMap<User, UserDto>()
 				.ReverseMap();
 			CreateMap<Portfolio, PortfolioDto>()
+				.ReverseMap();
+
+			CreateMap<PortfolioEditViewModel, PortfolioEditDto>()
 				.ReverseMap();
 		}
 	}

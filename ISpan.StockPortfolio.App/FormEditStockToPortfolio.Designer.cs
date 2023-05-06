@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.panelBuyIn = new System.Windows.Forms.Panel();
 			this.maskedTextBoxQuantity = new System.Windows.Forms.MaskedTextBox();
 			this.maskedTextBoxPrice = new System.Windows.Forms.MaskedTextBox();
@@ -40,7 +41,9 @@
 			this.labelSymbol = new System.Windows.Forms.Label();
 			this.labelPurchaseDate = new System.Windows.Forms.Label();
 			this.buttonDelete = new System.Windows.Forms.Button();
+			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.panelBuyIn.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// panelBuyIn
@@ -60,15 +63,19 @@
 			// 
 			this.maskedTextBoxQuantity.Location = new System.Drawing.Point(12, 111);
 			this.maskedTextBoxQuantity.Name = "maskedTextBoxQuantity";
-			this.maskedTextBoxQuantity.Size = new System.Drawing.Size(332, 32);
+			this.maskedTextBoxQuantity.Size = new System.Drawing.Size(332, 39);
 			this.maskedTextBoxQuantity.TabIndex = 1;
+			this.maskedTextBoxQuantity.Validating += new System.ComponentModel.CancelEventHandler(this.maskedTextBoxQuantity_Validating);
+			this.maskedTextBoxQuantity.Validated += new System.EventHandler(this.maskedTextBoxQuantity_Validated);
 			// 
 			// maskedTextBoxPrice
 			// 
 			this.maskedTextBoxPrice.Location = new System.Drawing.Point(12, 40);
 			this.maskedTextBoxPrice.Name = "maskedTextBoxPrice";
-			this.maskedTextBoxPrice.Size = new System.Drawing.Size(332, 32);
+			this.maskedTextBoxPrice.Size = new System.Drawing.Size(332, 39);
 			this.maskedTextBoxPrice.TabIndex = 0;
+			this.maskedTextBoxPrice.Validating += new System.ComponentModel.CancelEventHandler(this.maskedTextBoxPrice_Validating);
+			this.maskedTextBoxPrice.Validated += new System.EventHandler(this.maskedTextBoxPrice_Validated);
 			// 
 			// dateTimePickerPurchase
 			// 
@@ -76,7 +83,7 @@
 			this.dateTimePickerPurchase.Location = new System.Drawing.Point(12, 173);
 			this.dateTimePickerPurchase.MaxDate = new System.DateTime(2023, 5, 3, 0, 0, 0, 0);
 			this.dateTimePickerPurchase.Name = "dateTimePickerPurchase";
-			this.dateTimePickerPurchase.Size = new System.Drawing.Size(332, 32);
+			this.dateTimePickerPurchase.Size = new System.Drawing.Size(332, 39);
 			this.dateTimePickerPurchase.TabIndex = 2;
 			this.dateTimePickerPurchase.Value = new System.DateTime(2023, 5, 3, 0, 0, 0, 0);
 			// 
@@ -85,7 +92,7 @@
 			this.label4.AutoSize = true;
 			this.label4.Location = new System.Drawing.Point(8, 146);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(138, 24);
+			this.label4.Size = new System.Drawing.Size(176, 30);
 			this.label4.TabIndex = 0;
 			this.label4.Text = "Purchase Date";
 			// 
@@ -94,7 +101,7 @@
 			this.label3.AutoSize = true;
 			this.label3.Location = new System.Drawing.Point(8, 75);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(88, 24);
+			this.label3.Size = new System.Drawing.Size(112, 30);
 			this.label3.TabIndex = 0;
 			this.label3.Text = "Quantity";
 			// 
@@ -103,7 +110,7 @@
 			this.label2.AutoSize = true;
 			this.label2.Location = new System.Drawing.Point(8, 5);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(53, 24);
+			this.label2.Size = new System.Drawing.Size(68, 30);
 			this.label2.TabIndex = 0;
 			this.label2.Text = "Price";
 			// 
@@ -114,10 +121,11 @@
 			this.checkBoxCalculateProfit.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.checkBoxCalculateProfit.Location = new System.Drawing.Point(12, 97);
 			this.checkBoxCalculateProfit.Name = "checkBoxCalculateProfit";
-			this.checkBoxCalculateProfit.Size = new System.Drawing.Size(105, 28);
+			this.checkBoxCalculateProfit.Size = new System.Drawing.Size(131, 34);
 			this.checkBoxCalculateProfit.TabIndex = 0;
 			this.checkBoxCalculateProfit.Text = "計算損益";
 			this.checkBoxCalculateProfit.UseVisualStyleBackColor = true;
+			this.checkBoxCalculateProfit.CheckedChanged += new System.EventHandler(this.checkBoxCalculateProfit_CheckedChanged);
 			// 
 			// buttonEdit
 			// 
@@ -125,15 +133,16 @@
 			this.buttonEdit.Name = "buttonEdit";
 			this.buttonEdit.Size = new System.Drawing.Size(118, 57);
 			this.buttonEdit.TabIndex = 1;
-			this.buttonEdit.Text = "Add";
+			this.buttonEdit.Text = "Update";
 			this.buttonEdit.UseVisualStyleBackColor = true;
+			this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
 			// 
 			// labelSymbol
 			// 
 			this.labelSymbol.AutoSize = true;
 			this.labelSymbol.Location = new System.Drawing.Point(82, 22);
 			this.labelSymbol.Name = "labelSymbol";
-			this.labelSymbol.Size = new System.Drawing.Size(64, 24);
+			this.labelSymbol.Size = new System.Drawing.Size(81, 30);
 			this.labelSymbol.TabIndex = 12;
 			this.labelSymbol.Text = "label1";
 			// 
@@ -142,7 +151,7 @@
 			this.labelPurchaseDate.AutoSize = true;
 			this.labelPurchaseDate.Location = new System.Drawing.Point(82, 60);
 			this.labelPurchaseDate.Name = "labelPurchaseDate";
-			this.labelPurchaseDate.Size = new System.Drawing.Size(64, 24);
+			this.labelPurchaseDate.Size = new System.Drawing.Size(81, 30);
 			this.labelPurchaseDate.TabIndex = 14;
 			this.labelPurchaseDate.Text = "label6";
 			// 
@@ -154,10 +163,15 @@
 			this.buttonDelete.TabIndex = 2;
 			this.buttonDelete.Text = "Delete";
 			this.buttonDelete.UseVisualStyleBackColor = true;
+			this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+			// 
+			// errorProvider1
+			// 
+			this.errorProvider1.ContainerControl = this;
 			// 
 			// FormEditStockToPortfolio
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(384, 441);
 			this.Controls.Add(this.labelPurchaseDate);
@@ -167,12 +181,13 @@
 			this.Controls.Add(this.buttonDelete);
 			this.Controls.Add(this.buttonEdit);
 			this.Font = new System.Drawing.Font("微軟正黑體", 14F);
-			this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "FormEditStockToPortfolio";
 			this.Text = "FormEditStockToPortfolio";
 			this.Load += new System.EventHandler(this.FormEditStockToPortfolio_Load);
 			this.panelBuyIn.ResumeLayout(false);
 			this.panelBuyIn.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -192,5 +207,6 @@
 		private System.Windows.Forms.Label labelSymbol;
 		private System.Windows.Forms.Label labelPurchaseDate;
 		private System.Windows.Forms.Button buttonDelete;
+		private System.Windows.Forms.ErrorProvider errorProvider1;
 	}
 }

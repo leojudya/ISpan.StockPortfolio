@@ -127,6 +127,15 @@ namespace ISpan.StockPortfolio.DataAccessLayer.Models
 
 	}
 
+	public class PortfolioEditViewModel
+	{
+		public int Id { get; set; }
+		public int? Quantity { get; set; }
+		public decimal? Price { get; set; }
+		public DateTime? PurchaseDate { get; set; }
+
+	}
+
 	public class StockFee
 	{
 		public StockFee(PortfolioDetailViewModel vm)

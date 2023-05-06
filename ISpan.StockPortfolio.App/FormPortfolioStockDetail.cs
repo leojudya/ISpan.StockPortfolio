@@ -57,7 +57,7 @@ namespace ISpan.StockPortfolio.App
 
 		private void buttonClose_Click(object sender, EventArgs e)
 		{
-			
+			this.Close();
 		}
 
 		private void FormPortfolioStockDetail_FormClosing(object sender, FormClosingEventArgs e)

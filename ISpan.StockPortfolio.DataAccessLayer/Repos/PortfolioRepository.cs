@@ -15,7 +15,15 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 
         public IEnumerable<Portfolio> Search(int userId)
         {
-			string sql = @"SELECT p.*, s.[StockSymbol] AS [Symbol], s.[StockTypeId] FROM Portfolio p JOIN Stocks s ON p.StockId = s.Id WHERE UserId = @UserId";
+			string sql = @"SELECT
+                          p.*,
+                          s.[StockSymbol] AS [Symbol],
+                          s.[StockTypeId]
+                        FROM
+                          Portfolio p
+                          JOIN Stocks s ON p.StockId = s.Id
+                        WHERE
+                          UserId = @UserId;";
 
 			using (var conn = _connectionFactory.GetConnection())
 			{
@@ -67,9 +75,16 @@ namespace ISpan.StockPortfolio.DataAccessLayer
             }
         }
 
-        public int Update(Portfolio dto)
+        public int Update(PortfolioEditDto dto)
         {
-            string sql = @"UPDATE Portfolio SET [Quantity] = @Quantity, [Price] = @Price, [PurchaseDate] = @PurchaseDate WHERE Id = @Id;";
+            string sql = @"UPDATE
+                                Portfolio
+                            SET
+                                [Quantity] = @Quantity,
+                                [Price] = @Price,
+                                [PurchaseDate] = @PurchaseDate
+                            WHERE
+                                Id = @Id;";
 
             using (var conn = _connectionFactory.GetConnection())
             {

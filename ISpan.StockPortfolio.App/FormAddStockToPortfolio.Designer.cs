@@ -1,4 +1,9 @@
 ﻿using System;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace ISpan.StockPortfolio.App
 {
@@ -36,13 +41,13 @@ namespace ISpan.StockPortfolio.App
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
 			this.dateTimePickerPurchase = new System.Windows.Forms.DateTimePicker();
-			this.comboBoxStocks = new System.Windows.Forms.ComboBox();
 			this.buttonAdd = new System.Windows.Forms.Button();
 			this.maskedTextBoxPrice = new System.Windows.Forms.MaskedTextBox();
 			this.maskedTextBoxQuantity = new System.Windows.Forms.MaskedTextBox();
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.checkBoxCalculateProfit = new System.Windows.Forms.CheckBox();
 			this.panelBuyIn = new System.Windows.Forms.Panel();
+			this.comboBoxVipStock = new Vip.ComboBox.ComboBoxVip();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
 			this.panelBuyIn.SuspendLayout();
 			this.SuspendLayout();
@@ -93,20 +98,9 @@ namespace ISpan.StockPortfolio.App
 			this.dateTimePickerPurchase.TabIndex = 2;
 			this.dateTimePickerPurchase.Value = new System.DateTime(2023, 5, 3, 0, 0, 0, 0);
 			// 
-			// comboBoxStocks
-			// 
-			this.comboBoxStocks.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-			this.comboBoxStocks.FormattingEnabled = true;
-			this.comboBoxStocks.Location = new System.Drawing.Point(30, 40);
-			this.comboBoxStocks.Name = "comboBoxStocks";
-			this.comboBoxStocks.Size = new System.Drawing.Size(332, 37);
-			this.comboBoxStocks.TabIndex = 4;
-			this.comboBoxStocks.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.comboBoxStocks_Format);
-			this.comboBoxStocks.Leave += new System.EventHandler(this.comboBoxStocks_Leave);
-			// 
 			// buttonAdd
 			// 
-			this.buttonAdd.Location = new System.Drawing.Point(128, 347);
+			this.buttonAdd.Location = new System.Drawing.Point(129, 372);
 			this.buttonAdd.Name = "buttonAdd";
 			this.buttonAdd.Size = new System.Drawing.Size(118, 57);
 			this.buttonAdd.TabIndex = 5;
@@ -162,17 +156,27 @@ namespace ISpan.StockPortfolio.App
 			this.panelBuyIn.Size = new System.Drawing.Size(361, 220);
 			this.panelBuyIn.TabIndex = 8;
 			// 
+			// comboBoxVipStock
+			// 
+			this.comboBoxVipStock.FormattingEnabled = true;
+			this.comboBoxVipStock.Location = new System.Drawing.Point(18, 47);
+			this.comboBoxVipStock.Name = "comboBoxVipStock";
+			this.comboBoxVipStock.Size = new System.Drawing.Size(344, 37);
+			this.comboBoxVipStock.TabIndex = 9;
+			this.comboBoxVipStock.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.comboBoxVipStock_Format);
+			this.comboBoxVipStock.Leave += new System.EventHandler(this.comboBoxVipStock_Leave);
+			// 
 			// FormAddStockToPortfolio
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
 			this.CausesValidation = false;
-			this.ClientSize = new System.Drawing.Size(384, 441);
+			this.ClientSize = new System.Drawing.Size(384, 453);
+			this.Controls.Add(this.comboBoxVipStock);
 			this.Controls.Add(this.panelBuyIn);
 			this.Controls.Add(this.checkBoxCalculateProfit);
 			this.Controls.Add(this.buttonAdd);
-			this.Controls.Add(this.comboBoxStocks);
 			this.Controls.Add(this.label1);
 			this.Font = new System.Drawing.Font("微軟正黑體", 14F);
 			this.Margin = new System.Windows.Forms.Padding(6);
@@ -194,12 +198,13 @@ namespace ISpan.StockPortfolio.App
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
 		private System.Windows.Forms.DateTimePicker dateTimePickerPurchase;
-		private System.Windows.Forms.ComboBox comboBoxStocks;
 		private System.Windows.Forms.Button buttonAdd;
 		private System.Windows.Forms.MaskedTextBox maskedTextBoxPrice;
 		private System.Windows.Forms.MaskedTextBox maskedTextBoxQuantity;
 		private System.Windows.Forms.ErrorProvider errorProvider1;
 		private System.Windows.Forms.Panel panelBuyIn;
 		private System.Windows.Forms.CheckBox checkBoxCalculateProfit;
+		private Vip.ComboBox.ComboBoxVip comboBoxVipStock;
 	}
+
 }

@@ -28,18 +28,26 @@ namespace ISpan.StockPortfolio.App
 		private void FormAddStockToPortfolio_Load(object sender, EventArgs e)
 		{
 			_stocks = _stockService.GetAllStock().ToList();
-			comboBoxStocks.DataSource = _stocks;
-			comboBoxStocks.ValueMember = "Name";
-			comboBoxStocks.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+			comboBoxVipStock.DataSource = _stocks;
+			comboBoxVipStock.ValueMember = "Name";
+			comboBoxVipStock.AutoCompleteSource = AutoCompleteSource.ListItems;
+
 		}
 
-		private void comboBoxStocks_Leave(object sender, EventArgs e)
+		private void comboBoxVipStock_Leave(object sender, EventArgs e)
 		{
-			if (!StockExists(comboBoxStocks.SelectedItem))
+			if (!StockExists(comboBoxVipStock.SelectedItem))
 			{
-				comboBoxStocks.SelectedIndex = 0;
+				comboBoxVipStock.SelectedIndex = 0;
 				MessageBox.Show("目前尚無提供此股票查詢!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
+		}
+		private void comboBoxVipStock_Format(object sender, ListControlConvertEventArgs e)
+		{
+			string symbol = ((StockDto)e.ListItem).StockSymbol;
+			string name = ((StockDto)e.ListItem).Name;
+			e.Value = symbol + " - " + name;
 		}
 
 		private bool StockExists(object obj)
@@ -47,12 +55,6 @@ namespace ISpan.StockPortfolio.App
 			return _stocks.Where(s => (StockDto)obj == s).Any();
 		}
 
-		private void comboBoxStocks_Format(object sender, ListControlConvertEventArgs e)
-		{
-			string symbol = ((StockDto)e.ListItem).StockSymbol;
-			string name = ((StockDto)e.ListItem).Name;
-			e.Value = symbol + " - " + name;
-		}
 
 		private void buttonAdd_Click(object sender, EventArgs e)
 		{
@@ -62,7 +64,7 @@ namespace ISpan.StockPortfolio.App
 				return;
 			}
 
-			StockDto selectedStock = (StockDto)comboBoxStocks.SelectedItem;
+			StockDto selectedStock = (StockDto)comboBoxVipStock.SelectedItem;
 
 			var portfolio = new PortfolioAddViewModel()
 			{
@@ -139,6 +141,7 @@ namespace ISpan.StockPortfolio.App
 		{
 			this.errorProvider1.SetError(maskedTextBoxQuantity, string.Empty);
 		}
+
 
 	}
 }
