@@ -1,20 +1,16 @@
 ﻿using Dapper;
-using ISpan.StockPortfolio.DataAccessLayer.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ISpan.StockPortfolio.DataAccessLayer.Core;
+using ISpan.StockPortfolio.DataAccessLayer.Dtos;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 
 namespace ISpan.StockPortfolio.DataAccessLayer
 {
-	public class PortfolioRepository
+	public class PortfolioRepository : IPortfolioRepository
 	{
-		private static IConnectionFactory _connectionFactory = new SqlServerConnectionFactory();
-
         public IEnumerable<Portfolio> Search(int userId)
-        {
+		{
 			string sql = @"SELECT
                           p.*,
                           s.[StockSymbol] AS [Symbol],
@@ -25,7 +21,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
                         WHERE
                           UserId = @UserId;";
 
-			using (var conn = _connectionFactory.GetConnection())
+			using (var conn = DbConnectionBuilder.Create())
 			{
 				return conn.Query<Portfolio>(sql, new { UserId = userId });
 			}
@@ -33,21 +29,21 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 		}
 
 		public Portfolio Get(int id)
-        {
-            string sql = @"SELECT * FROM Portfolio WHERE Id = @Id";
+		{
+			string sql = @"SELECT * FROM Portfolio WHERE Id = @Id";
 
-			using (var conn = _connectionFactory.GetConnection())
+			using (var conn = DbConnectionBuilder.Create())
 			{
-				return conn.Query<Portfolio>(sql, new {Id = id}).FirstOrDefault();
+				return conn.Query<Portfolio>(sql, new { Id = id }).FirstOrDefault();
 			}
 
 		}
 
 		public int Insert(PortfolioAddDto dto)
 		{
-            #region SQL Statement
-            string sql =
-                 @"INSERT INTO
+			#region SQL Statement
+			string sql =
+				 @"INSERT INTO
                         Portfolio(
                             [UserId],
                             [StockId],
@@ -56,28 +52,28 @@ namespace ISpan.StockPortfolio.DataAccessLayer
                             [PurchaseDate]
                         )
                     VALUES
-                        (@UserId, @StockId, @Quantity, @Price, @PurchaseDate);"; 
-            #endregion
+                        (@UserId, @StockId, @Quantity, @Price, @PurchaseDate);";
+			#endregion
 
-            using (var conn = _connectionFactory.GetConnection())
-            {
-                return conn.Execute(sql, dto);
-            }
-        }
+			using (var conn = DbConnectionBuilder.Create())
+			{
+				return conn.Execute(sql, dto);
+			}
+		}
 
-        public int Delete(int id)
-        {
-            string sql = @"DELETE FROM Portfolio WHERE Id = @Id";
+		public int Delete(int id)
+		{
+			string sql = @"DELETE FROM Portfolio WHERE Id = @Id";
 
-            using (var conn = _connectionFactory.GetConnection())
-            {
-                return conn.Execute(sql, new { Id = id });
-            }
-        }
+			using (var conn = DbConnectionBuilder.Create())
+			{
+				return conn.Execute(sql, new { Id = id });
+			}
+		}
 
-        public int Update(PortfolioEditDto dto)
-        {
-            string sql = @"UPDATE
+		public int Update(PortfolioEditDto dto)
+		{
+			string sql = @"UPDATE
                                 Portfolio
                             SET
                                 [Quantity] = @Quantity,
@@ -86,10 +82,10 @@ namespace ISpan.StockPortfolio.DataAccessLayer
                             WHERE
                                 Id = @Id;";
 
-            using (var conn = _connectionFactory.GetConnection())
-            {
-                return conn.Execute(sql, dto);
-            }
-        }
+			using (var conn = DbConnectionBuilder.Create())
+			{
+				return conn.Execute(sql, dto);
+			}
+		}
 	}
 }

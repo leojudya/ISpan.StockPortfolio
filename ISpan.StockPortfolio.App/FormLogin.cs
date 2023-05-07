@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using ISpan.StockPortfolio.Services;
+using System;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.Json;
-using ISpan.StockPortfolio.DataAccessLayer;
-using System.Runtime.CompilerServices;
-using System.Globalization;
-using System.Text.RegularExpressions;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using ISpan.StockPortfolio.Services;
 
 namespace ISpan.StockPortfolio.App
 {
@@ -33,7 +21,7 @@ namespace ISpan.StockPortfolio.App
 
 		private void buttonLogin_Click(object sender, EventArgs e)
 		{
-			
+
 			if (!ValidateChildren())
 			{
 				MessageBox.Show("Email 或 密碼格式錯誤!");

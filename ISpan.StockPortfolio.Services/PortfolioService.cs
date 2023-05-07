@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
+using ISpan.StockPortfolio.Common;
 using ISpan.StockPortfolio.DataAccessLayer;
 using ISpan.StockPortfolio.DataAccessLayer.Dtos;
 using ISpan.StockPortfolio.DataAccessLayer.Models;
-using ISpan.StockPortfolio.Common;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace ISpan.StockPortfolio.Services
 {
 	public class PortfolioService
 	{
-		private static readonly PortfolioRepository _portfolioRepository = new PortfolioRepository();
+		private readonly IPortfolioRepository _portfolioRepository;
 		private static readonly TwseStockInfoService _twseStockInfoService = new TwseStockInfoService();
 		private static MapperConfiguration _mapperConfiguration;
 		private static IMapper _mapper;
-		
+
 		public PortfolioService()
 		{
 			_mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<ServiceMapper>());
 			_mapper = _mapperConfiguration.CreateMapper();
+			_portfolioRepository = new PortfolioRepository();
 		}
 
 		public int Update(PortfolioEditDto dto)

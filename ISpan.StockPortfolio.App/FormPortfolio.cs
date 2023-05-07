@@ -1,18 +1,14 @@
-﻿using ISpan.StockPortfolio.DataAccessLayer.Models;
+﻿using AutoMapper;
+using ISpan.StockPortfolio.Common;
+using ISpan.StockPortfolio.DataAccessLayer.Models;
 using ISpan.StockPortfolio.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AutoMapper;
-using ISpan.StockPortfolio.Common;
-using System.Runtime.CompilerServices;
-using ISpan.StockPortfolio.DataAccessLayer.Core;
 
 namespace ISpan.StockPortfolio.App
 {
@@ -40,7 +36,7 @@ namespace ISpan.StockPortfolio.App
 
 		public void Display()
 		{
-			
+
 			_portfolios = Task.Run(() => _portfolioService.GetPortfolio(_userId)).Result.ToList();
 			var portfolios = _mapper.Map<List<PortfolioViewModel>>(_portfolios);
 			dataGridView1.DataSource = GroupPortfolioParse(portfolios).ToList();

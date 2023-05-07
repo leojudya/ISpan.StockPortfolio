@@ -183,7 +183,7 @@
 			this.Font = new System.Drawing.Font("微軟正黑體", 14F);
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "FormEditStockToPortfolio";
-			this.Text = "FormEditStockToPortfolio";
+			this.Text = "StockPortfolio - Edit";
 			this.Load += new System.EventHandler(this.FormEditStockToPortfolio_Load);
 			this.panelBuyIn.ResumeLayout(false);
 			this.panelBuyIn.PerformLayout();

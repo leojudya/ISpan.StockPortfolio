@@ -154,3 +154,10 @@ C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAc
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\obj\Debug\ISpan.StockPortfolio.DataAccessLayer.csproj.CopyComplete
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\obj\Debug\ISpan.StockPortfolio.DataAccessLayer.dll
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\obj\Debug\ISpan.StockPortfolio.DataAccessLayer.pdb
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\System.Memory.dll
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Primitives.xml

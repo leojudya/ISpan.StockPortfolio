@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ISpan.StockPortfolio.DataAccessLayer.Core
+﻿namespace ISpan.StockPortfolio.DataAccessLayer.Core
 {
 	public class User
 	{
@@ -14,7 +8,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer.Core
 
 		public User() { }
 
-		public User(string email, string password, int id = 0) 
+		public User(string email, string password, int id = 0)
 		{
 			// TO-DO
 			// precondition check

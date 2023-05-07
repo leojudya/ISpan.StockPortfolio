@@ -1,16 +1,11 @@
-using NUnit.Framework;
 using ISpan.StockPortfolio.DataAccessLayer;
-using System.Text.Json;
 using ISpan.StockPortfolio.DataAccessLayer.Dtos;
-using System.Configuration;
-using System.Data;
-using AutoMapper;
-using System.Collections.Generic;
+using NUnit.Framework;
 using System.Linq;
 
 namespace ISpan.StockPortfolio.UnitTests
 {
-	
+
 	public class PortfolioRepositoryUnitTest
 	{
 		private PortfolioRepository _portfolioRepository = new PortfolioRepository();

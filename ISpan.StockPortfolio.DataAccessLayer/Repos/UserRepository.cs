@@ -1,24 +1,18 @@
 ﻿using Dapper;
-using ISpan.StockPortfolio.DataAccessLayer.Dtos;
 using ISpan.StockPortfolio.DataAccessLayer.Core;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ISpan.StockPortfolio.DataAccessLayer.Dtos;
+using System.Data;
 
 namespace ISpan.StockPortfolio.DataAccessLayer
 {
-	public class UserRepository
+	public class UserRepository : IUserRepository
 	{
-		private static IConnectionFactory _connectionFactory = new SqlServerConnectionFactory();
 		public User Get(string email)
 		{
 			string sql = @"SELECT [Id], [Email], [Password] FROM Users WHERE [Email] = @Email";
 
-			using (var conn = _connectionFactory.GetConnection()) 
-			{ 
+			using (var conn = DbConnectionBuilder.Create())
+			{
 				var user = conn.QueryFirstOrDefault<User>(sql, new { Email = email });
 				return user;
 			}
@@ -28,7 +22,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 		{
 			string sql = @"INSERT INTO Users([Email], [Password], [CreatedTime]) VALUES (@Email, @Password, DEFAULT);";
 
-			using (var conn = _connectionFactory.GetConnection())
+			using (var conn = DbConnectionBuilder.Create())
 			{
 				return conn.Execute(sql, new { user.Email, user.Password });
 			}
@@ -38,7 +32,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 		{
 			string sql = @"DELETE FROM Users WHERE Id = @Id";
 
-			using (var conn = _connectionFactory.GetConnection())
+			using (var conn = DbConnectionBuilder.Create())
 			{
 				return conn.Execute(sql, new { Id = userId });
 			}
@@ -48,7 +42,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 		{
 			string sql = @"UPDATE Users SET [Email] = @Email, [Password] = @Password WHERE Id = @Id;";
 
-			using (var conn = _connectionFactory.GetConnection())
+			using (var conn = DbConnectionBuilder.Create())
 			{
 				return conn.Execute(sql, new { user.Email, user.Password, user.Id });
 			}

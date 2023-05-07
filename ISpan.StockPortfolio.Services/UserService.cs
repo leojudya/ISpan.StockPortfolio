@@ -1,21 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BC = BCrypt.Net.BCrypt;
-using ISpan.StockPortfolio.DataAccessLayer;
-using ISpan.StockPortfolio.DataAccessLayer.Dtos;
-using ISpan.StockPortfolio.DataAccessLayer.Core;
-using AutoMapper;
+﻿using AutoMapper;
 using ISpan.StockPortfolio.Common;
+using ISpan.StockPortfolio.DataAccessLayer;
+using ISpan.StockPortfolio.DataAccessLayer.Core;
+using ISpan.StockPortfolio.DataAccessLayer.Dtos;
+using BC = BCrypt.Net.BCrypt;
 
 
 namespace ISpan.StockPortfolio.Services
 {
-	public class UserService
+	public interface IUserService
 	{
-		private static UserRepository _userRepository = new UserRepository();
+		int Create(UserSignUpDto dto);
+		UserDto GetLoginUser(string email);
+		bool VerifyPassword(string email, string password);
+	}
+
+	public class UserService : IUserService
+	{
+		private IUserRepository _userRepository;
 		private static MapperConfiguration _mapperConfiguration;
 		private static IMapper _mapper;
 
@@ -23,6 +25,7 @@ namespace ISpan.StockPortfolio.Services
 		{
 			_mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<ServiceMapper>());
 			_mapper = _mapperConfiguration.CreateMapper();
+			_userRepository = new UserRepository();
 		}
 
 		public bool VerifyPassword(string email, string password)
@@ -43,7 +46,5 @@ namespace ISpan.StockPortfolio.Services
 		{
 			return _userRepository.Insert(_mapper.Map<User>(dto));
 		}
-
-
 	}
 }

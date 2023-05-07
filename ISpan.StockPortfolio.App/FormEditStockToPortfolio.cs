@@ -4,13 +4,7 @@ using ISpan.StockPortfolio.DataAccessLayer.Dtos;
 using ISpan.StockPortfolio.DataAccessLayer.Models;
 using ISpan.StockPortfolio.Services;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ISpan.StockPortfolio.App
@@ -28,6 +22,10 @@ namespace ISpan.StockPortfolio.App
 		private void FormEditStockToPortfolio_Load(object sender, EventArgs e)
 		{
 			var vm = _vm;
+
+			dateTimePickerPurchase.MaxDate = DateTime.Today;
+			dateTimePickerPurchase.Value = DateTime.Today;
+
 			labelSymbol.Text = vm.Symbol + " - " + vm.Name;
 			labelPurchaseDate.Text = vm.PurchaseDate == null ? string.Empty : "買進日: " + ((DateTime)vm.PurchaseDate).ToShortDateString();
 			maskedTextBoxPrice.Text = vm.Price.ToString();

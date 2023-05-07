@@ -1,18 +1,12 @@
-﻿using ISpan.StockPortfolio.Services;
+﻿using AutoMapper;
 using ISpan.StockPortfolio.Common;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BC = BCrypt.Net.BCrypt;
-using System.Windows.Forms;
-using ISpan.StockPortfolio.DataAccessLayer.Models;
-using AutoMapper;
 using ISpan.StockPortfolio.DataAccessLayer.Dtos;
+using ISpan.StockPortfolio.DataAccessLayer.Models;
+using ISpan.StockPortfolio.Services;
+using System;
+using System.ComponentModel;
+using System.Windows.Forms;
+using BC = BCrypt.Net.BCrypt;
 
 namespace ISpan.StockPortfolio.App
 {

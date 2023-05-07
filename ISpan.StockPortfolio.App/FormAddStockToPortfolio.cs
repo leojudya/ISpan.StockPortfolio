@@ -1,15 +1,12 @@
-﻿using System;
+﻿using ISpan.StockPortfolio.DataAccessLayer.Dtos;
+using ISpan.StockPortfolio.DataAccessLayer.Models;
+using ISpan.StockPortfolio.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using ISpan.StockPortfolio.DataAccessLayer.Dtos;
-using ISpan.StockPortfolio.DataAccessLayer.Models;
-using ISpan.StockPortfolio.Services;
 
 namespace ISpan.StockPortfolio.App
 {
@@ -29,6 +26,8 @@ namespace ISpan.StockPortfolio.App
 		{
 			_stocks = _stockService.GetAllStock().ToList();
 
+			dateTimePickerPurchase.MaxDate = DateTime.Today;
+			dateTimePickerPurchase.Value = DateTime.Today;
 			comboBoxVipStock.DataSource = _stocks;
 			comboBoxVipStock.ValueMember = "Name";
 			comboBoxVipStock.AutoCompleteSource = AutoCompleteSource.ListItems;

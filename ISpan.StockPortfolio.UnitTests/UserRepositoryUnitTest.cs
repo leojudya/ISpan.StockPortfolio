@@ -1,16 +1,13 @@
-using NUnit.Framework;
-using ISpan.StockPortfolio.DataAccessLayer;
-using System.Text.Json;
-using ISpan.StockPortfolio.DataAccessLayer.Dtos;
-using System.Configuration;
-using System.Data;
 using AutoMapper;
-using System.Collections.Generic;
+using ISpan.StockPortfolio.DataAccessLayer;
+using ISpan.StockPortfolio.DataAccessLayer.Dtos;
+using NUnit.Framework;
+using System.Text.Json;
 
 
 namespace ISpan.StockPortfolio.UnitTests
 {
-	
+
 	public class UserRepositoryUnitTest
 	{
 		private UserRepository _userRepository = new UserRepository();
@@ -48,9 +45,9 @@ namespace ISpan.StockPortfolio.UnitTests
 			var dbUser = _userRepository.Get("leojudya@gmail.com");
 			_userRepository.Delete(dbUser.Id);
 
-			var config = new MapperConfiguration(cfg => cfg.CreateMap<UserDto, UserSignUpDto>()); 
-			config.AssertConfigurationIsValid(); 
-			var mapper = config.CreateMapper(); 
+			var config = new MapperConfiguration(cfg => cfg.CreateMap<UserDto, UserSignUpDto>());
+			config.AssertConfigurationIsValid();
+			var mapper = config.CreateMapper();
 			var result = mapper.Map<UserSignUpDto>(dbUser);
 
 			var user = JsonSerializer.Serialize(result);

@@ -1,18 +1,14 @@
 ﻿using Dapper;
 using ISpan.StockPortfolio.DataAccessLayer.Dtos;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ISpan.StockPortfolio.DataAccessLayer
 {
-	public class StockRepository
+	public class StockRepository : IStockRepository
 	{
-		private static IConnectionFactory _connectionFactory = new SqlServerConnectionFactory();
-
 		public IEnumerable<StockDto> Search()
 		{
 			string sql =
@@ -26,7 +22,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 					Stocks s
 					JOIN StockTypes st ON s.StockTypeId = st.Id";
 
-			using (var conn = _connectionFactory.GetConnection())
+			using (var conn = DbConnectionBuilder.Create())
 			{
 				return conn.Query<StockDto>(sql);
 			}
@@ -49,7 +45,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 					StockSymbol = @Symbol;
 				";
 
-			using (var conn = _connectionFactory.GetConnection())
+			using (var conn = DbConnectionBuilder.Create())
 			{
 				return conn.Query<StockDto>(sql, new { Symbol = symbol }).FirstOrDefault();
 			}
@@ -72,7 +68,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 					Name = @Name;
 				";
 
-			using (var conn = _connectionFactory.GetConnection())
+			using (var conn = DbConnectionBuilder.Create())
 			{
 				return conn.Query<StockDto>(sql, new { Name = name }).FirstOrDefault();
 			}
@@ -81,7 +77,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 		public int Delete(int stockId)
 		{
 			string sql = @"DELETE FROM Stocks WHERE Id = @Id";
-			using (var conn = _connectionFactory.GetConnection())
+			using (var conn = DbConnectionBuilder.Create())
 			{
 				return conn.Execute(sql, new { Id = stockId });
 			}

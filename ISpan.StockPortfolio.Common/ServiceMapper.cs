@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using ISpan.StockPortfolio.DataAccessLayer;
-using ISpan.StockPortfolio.DataAccessLayer.Dtos;
+﻿using AutoMapper;
 using ISpan.StockPortfolio.DataAccessLayer.Core;
+using ISpan.StockPortfolio.DataAccessLayer.Dtos;
 using ISpan.StockPortfolio.DataAccessLayer.Models;
+using System;
+using System.Globalization;
 
 namespace ISpan.StockPortfolio.Common
 {
-    public class ServiceMapper : Profile
-    {
+	public class ServiceMapper : Profile
+	{
 		public ServiceMapper()
 		{
 

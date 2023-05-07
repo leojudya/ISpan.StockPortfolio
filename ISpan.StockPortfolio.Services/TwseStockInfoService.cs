@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Text.Json;
-using ISpan.StockPortfolio.DataAccessLayer.Dtos;
-using AutoMapper;
-using System.Globalization;
+﻿using AutoMapper;
 using ISpan.StockPortfolio.Common;
+using ISpan.StockPortfolio.DataAccessLayer.Dtos;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace ISpan.StockPortfolio.Services
 {

@@ -181,7 +181,7 @@ namespace ISpan.StockPortfolio.App
 			this.Font = new System.Drawing.Font("微軟正黑體", 14F);
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "FormAddStockToPortfolio";
-			this.Text = " ";
+			this.Text = "StockPortfolio - Add";
 			this.Load += new System.EventHandler(this.FormAddStockToPortfolio_Load);
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
 			this.panelBuyIn.ResumeLayout(false);
