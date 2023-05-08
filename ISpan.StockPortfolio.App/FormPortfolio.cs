@@ -36,7 +36,6 @@ namespace ISpan.StockPortfolio.App
 
 		public void Display()
 		{
-
 			_portfolios = Task.Run(() => _portfolioService.GetPortfolio(_userId)).Result.ToList();
 			var portfolios = _mapper.Map<List<PortfolioViewModel>>(_portfolios);
 			dataGridView1.DataSource = GroupPortfolioParse(portfolios).ToList();
@@ -45,6 +44,7 @@ namespace ISpan.StockPortfolio.App
 
 		private void FormPortfolio_Load(object sender, EventArgs e)
 		{
+			//timer1.Start();
 			Display();
 
 			dataGridView1.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -150,6 +150,11 @@ namespace ISpan.StockPortfolio.App
 		private void FormPortfolio_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			this.Owner.Show();
+		}
+
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+			Display();
 		}
 	}
 

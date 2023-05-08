@@ -36,6 +36,7 @@
 			this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
 			this.textBoxPassword = new System.Windows.Forms.TextBox();
 			this.textBoxEmail = new System.Windows.Forms.TextBox();
+			this.linkLabelForgetPassword = new System.Windows.Forms.LinkLabel();
 			((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -110,6 +111,17 @@
 			this.textBoxEmail.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEmail_Validating);
 			this.textBoxEmail.Validated += new System.EventHandler(this.textBoxEmail_Validated);
 			// 
+			// linkLabelForgetPassword
+			// 
+			this.linkLabelForgetPassword.AutoSize = true;
+			this.linkLabelForgetPassword.Location = new System.Drawing.Point(158, 339);
+			this.linkLabelForgetPassword.Name = "linkLabelForgetPassword";
+			this.linkLabelForgetPassword.Size = new System.Drawing.Size(53, 12);
+			this.linkLabelForgetPassword.TabIndex = 5;
+			this.linkLabelForgetPassword.TabStop = true;
+			this.linkLabelForgetPassword.Text = "忘記密碼";
+			this.linkLabelForgetPassword.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelForgetPassword_LinkClicked);
+			// 
 			// FormLogin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -117,6 +129,7 @@
 			this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
 			this.CausesValidation = false;
 			this.ClientSize = new System.Drawing.Size(380, 360);
+			this.Controls.Add(this.linkLabelForgetPassword);
 			this.Controls.Add(this.textBoxPassword);
 			this.Controls.Add(this.textBoxEmail);
 			this.Controls.Add(this.linkLabelSignUp);
@@ -142,6 +155,7 @@
 		private System.Windows.Forms.ErrorProvider errorProvider1;
 		private System.Windows.Forms.TextBox textBoxPassword;
 		private System.Windows.Forms.TextBox textBoxEmail;
+		private System.Windows.Forms.LinkLabel linkLabelForgetPassword;
 	}
 }
 

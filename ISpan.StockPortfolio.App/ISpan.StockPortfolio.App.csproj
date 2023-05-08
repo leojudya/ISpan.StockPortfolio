@@ -114,6 +114,12 @@
     <Compile Include="FormEditStockToPortfolio.Designer.cs">
       <DependentUpon>FormEditStockToPortfolio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormForgetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormForgetPassword.Designer.cs">
+      <DependentUpon>FormForgetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditStockToPortfolio.resx">
       <DependentUpon>FormEditStockToPortfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormForgetPassword.resx">
+      <DependentUpon>FormForgetPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

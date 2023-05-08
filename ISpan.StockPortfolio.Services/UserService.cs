@@ -46,5 +46,29 @@ namespace ISpan.StockPortfolio.Services
 		{
 			return _userRepository.Insert(_mapper.Map<User>(dto));
 		}
+
+		public void CreateForgetPassword(string email)
+		{
+			var user = GetLoginUser(email);
+			if (user == null)
+				return;
+
+			_userRepository.CreateForgetPassword(email, user.Id);
+			var code = _userRepository.GetForgetPassword(email).Guid.ToString();
+			ForgetPasswordHelper.SendVerificationCode(code, email);
+		}
+
+		public bool VerifyForgetPassword(string email, string code)
+		{
+			var forgetPassword = _userRepository.GetForgetPassword(email);
+			if (forgetPassword == null)
+				return false;
+			if (forgetPassword.ExpiryTime < System.DateTime.Now)
+				return false;
+
+			var dbGuid = forgetPassword.Guid.ToString().ToLower();
+
+			return dbGuid.Equals(code.ToLower());
+		}
 	}
 }

@@ -2,6 +2,7 @@
 using ISpan.StockPortfolio.DataAccessLayer.Core;
 using ISpan.StockPortfolio.DataAccessLayer.Dtos;
 using System.Data;
+using System.Security.Cryptography;
 
 namespace ISpan.StockPortfolio.DataAccessLayer
 {
@@ -46,6 +47,29 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 			{
 				return conn.Execute(sql, new { user.Email, user.Password, user.Id });
 			}
+		}
+
+		public void CreateForgetPassword(string email, int userId)
+		{
+			using (var conn = DbConnectionBuilder.Create())
+			{
+				DynamicParameters parameters = new DynamicParameters();
+				parameters.Add("Email", email);
+				parameters.Add("UserId", userId);
+				conn.Execute("CreateForgetPassword", parameters, commandType: CommandType.StoredProcedure);
+			}
+
+		}
+
+		public ForgetPassword GetForgetPassword(string email)
+		{
+			string sql = @"SELECT * FROM ForgetPassword JOIN Users ON Users.Id = ForgetPassword.UserId WHERE Users.Email = @Email";
+
+			using (var conn = DbConnectionBuilder.Create())
+			{
+				return conn.QueryFirstOrDefault<ForgetPassword>(sql, new { Email = email });
+			}
+
 		}
 	}
 }

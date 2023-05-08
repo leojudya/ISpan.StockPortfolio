@@ -42,6 +42,9 @@ namespace ISpan.StockPortfolio.Common
 
 			CreateMap<PortfolioEditViewModel, PortfolioEditDto>()
 				.ReverseMap();
+
+			CreateMap<ForgetPassword, ForgetPasswordDto>()
+				.ReverseMap();
 		}
 	}
 }

@@ -236,9 +236,11 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\ForgetPassword.cs" />
     <Compile Include="Core\Portfolio.cs" />
     <Compile Include="Core\User.cs" />
     <Compile Include="Dtos\ClosingPriceDto.cs" />
+    <Compile Include="Dtos\ForgetPasswordDto.cs" />
     <Compile Include="Dtos\PortfolioDto.cs" />
     <Compile Include="Dtos\StockDto.cs" />
     <Compile Include="Dtos\TwseStockInfoDto.cs" />

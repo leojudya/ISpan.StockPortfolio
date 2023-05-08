@@ -68,8 +68,8 @@ namespace ISpan.StockPortfolio.DataAccessLayer.Dtos
 		public string sessionStr { get; set; }
 		public string sysTime { get; set; }
 		public bool showChart { get; set; }
-		public int sessionFromTime { get; set; }
-		public int sessionLatestTime { get; set; }
+		public long? sessionFromTime { get; set; }
+		public long? sessionLatestTime { get; set; }
 	}
 
 	public class StockRoot

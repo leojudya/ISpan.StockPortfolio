@@ -96,5 +96,11 @@ namespace ISpan.StockPortfolio.App
 				buttonLogin_Click(textBoxPassword, EventArgs.Empty);
 			}
 		}
+
+		private void linkLabelForgetPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			var frm = new FormForgetPassword(textBoxEmail.Text);
+			frm.ShowDialog();
+		}
 	}
 }
