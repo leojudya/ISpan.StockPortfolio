@@ -36,7 +36,12 @@ namespace ISpan.StockPortfolio.App
 
 			var user = _userService.GetLoginUser(textBoxEmail.Text);
 
+			textBoxEmail.Text = string.Empty;
+			textBoxPassword.Text = string.Empty;
+
 			var frm = new FormPortfolio(user.Id);
+			frm.Owner = this;
+			this.Hide();
 			frm.ShowDialog();
 		}
 

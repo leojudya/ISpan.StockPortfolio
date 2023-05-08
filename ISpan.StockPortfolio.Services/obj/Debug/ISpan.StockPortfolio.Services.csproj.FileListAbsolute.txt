@@ -74,9 +74,7 @@ C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Servic
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\System.Text.Json.dll
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\System.ValueTuple.dll
-C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\Microsoft.Data.Sqlite.dll
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\Dapper.dll
-C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\SQLitePCLRaw.core.dll
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\ISpan.StockPortfolio.DataAccessLayer.pdb
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\ISpan.StockPortfolio.DataAccessLayer.dll.config
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\AutoMapper.xml
@@ -93,7 +91,6 @@ C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Servic
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\System.Text.Json.xml
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\System.ValueTuple.xml
-C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\Microsoft.Data.Sqlite.xml
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\bin\Debug\Dapper.xml
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\obj\Debug\ISpan.StockPortfolio.Services.csproj.AssemblyReference.cache
 C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.Services\obj\Debug\ISpan.StockPortfolio.Services.csproj.CoreCompileInputs.cache

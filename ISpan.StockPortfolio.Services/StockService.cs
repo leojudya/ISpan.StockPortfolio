@@ -7,7 +7,7 @@ namespace ISpan.StockPortfolio.Services
 {
 	public class StockService
 	{
-		private IStockRepository _stockRepository;
+		private readonly IStockRepository _stockRepository;
         public StockService()
         {
 			_stockRepository = new StockRepository();

@@ -17,7 +17,7 @@ namespace ISpan.StockPortfolio.Services
 
 	public class UserService : IUserService
 	{
-		private IUserRepository _userRepository;
+		private readonly IUserRepository _userRepository;
 		private static MapperConfiguration _mapperConfiguration;
 		private static IMapper _mapper;
 

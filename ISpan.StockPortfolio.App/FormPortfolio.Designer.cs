@@ -29,7 +29,6 @@
 		private void InitializeComponent()
 		{
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.linkLabelAdd = new System.Windows.Forms.LinkLabel();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.textBoxSearch = new System.Windows.Forms.TextBox();
@@ -42,7 +41,7 @@
 			this.linkLabelAdd.AutoSize = true;
 			this.linkLabelAdd.Location = new System.Drawing.Point(11, 20);
 			this.linkLabelAdd.Name = "linkLabelAdd";
-			this.linkLabelAdd.Size = new System.Drawing.Size(129, 27);
+			this.linkLabelAdd.Size = new System.Drawing.Size(100, 22);
 			this.linkLabelAdd.TabIndex = 0;
 			this.linkLabelAdd.TabStop = true;
 			this.linkLabelAdd.Text = "Add new..";
@@ -54,23 +53,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 11F);
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Consolas", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
 			this.dataGridView1.Location = new System.Drawing.Point(15, 56);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
@@ -85,7 +76,7 @@
 			// 
 			this.textBoxSearch.Location = new System.Drawing.Point(1051, 12);
 			this.textBoxSearch.Name = "textBoxSearch";
-			this.textBoxSearch.Size = new System.Drawing.Size(290, 34);
+			this.textBoxSearch.Size = new System.Drawing.Size(290, 29);
 			this.textBoxSearch.TabIndex = 2;
 			this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
 			// 
@@ -94,13 +85,13 @@
 			this.label1.AutoSize = true;
 			this.label1.Location = new System.Drawing.Point(955, 15);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(90, 27);
+			this.label1.Size = new System.Drawing.Size(70, 22);
 			this.label1.TabIndex = 3;
 			this.label1.Text = "Search";
 			// 
 			// FormPortfolio
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1353, 678);
 			this.Controls.Add(this.label1);
@@ -111,6 +102,7 @@
 			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "FormPortfolio";
 			this.Text = "StockPortfolio";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPortfolio_FormClosing);
 			this.Load += new System.EventHandler(this.FormPortfolio_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);

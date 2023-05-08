@@ -161,3 +161,10 @@ C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Syst
 C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.xml
 C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
 C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\System.Memory.dll
+C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.DataAccessLayer\bin\Debug\Microsoft.Extensions.Primitives.xml

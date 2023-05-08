@@ -146,6 +146,11 @@ namespace ISpan.StockPortfolio.App
 		{
 			SearchBySymbolOrName();
 		}
+
+		private void FormPortfolio_FormClosing(object sender, FormClosingEventArgs e)
+		{
+			this.Owner.Show();
+		}
 	}
 
 }
