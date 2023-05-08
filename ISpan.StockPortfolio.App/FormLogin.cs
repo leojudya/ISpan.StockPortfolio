@@ -99,7 +99,7 @@ namespace ISpan.StockPortfolio.App
 
 		private void linkLabelForgetPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
-			var frm = new FormForgetPassword(textBoxEmail.Text);
+			var frm = new FormForgetPassword();
 			frm.ShowDialog();
 		}
 	}

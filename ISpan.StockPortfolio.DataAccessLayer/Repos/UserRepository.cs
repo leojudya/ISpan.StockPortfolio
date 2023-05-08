@@ -3,6 +3,7 @@ using ISpan.StockPortfolio.DataAccessLayer.Core;
 using ISpan.StockPortfolio.DataAccessLayer.Dtos;
 using System.Data;
 using System.Security.Cryptography;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace ISpan.StockPortfolio.DataAccessLayer
 {
@@ -70,6 +71,27 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 				return conn.QueryFirstOrDefault<ForgetPassword>(sql, new { Email = email });
 			}
 
+		}
+
+		public void DeleteForgetPassword(string email)
+		{
+			string sql = @"DELETE f FROM ForgetPassword f JOIN Users u ON f.UserId = u.Id WHERE u.Email = @Email";
+
+			using (var conn = DbConnectionBuilder.Create())
+			{
+				conn.Execute(sql, new { Email = email });
+			}
+
+		}
+
+		public void UpdatePassword(string email, string password)
+		{
+			string sql = @"UPDATE Users SET Password = @Password WHERE Email = @Email";
+
+			using (var conn = DbConnectionBuilder.Create())
+			{
+				conn.Execute(sql, new { Email = email, Password = password });
+			}
 		}
 	}
 }

@@ -14,32 +14,35 @@ namespace ISpan.StockPortfolio.App
 {
 	public partial class FormForgetPassword : Form
 	{
-		private readonly string _email;
 		private readonly UserService _userService;
-		public FormForgetPassword(string email)
+		public FormForgetPassword()
 		{
 			InitializeComponent();
-			_email = email;
 			_userService = new UserService();
 		}
 
 		private void buttonCreateCode_Click(object sender, EventArgs e)
 		{
-			_userService.CreateForgetPassword(_email);
+			_userService.CreateForgetPassword(textBoxEmail.Text);
+			label1.Visible = true;
+			textBoxCode.Visible = true;
 		}
 
 		private void buttonVerify_Click(object sender, EventArgs e)
 		{
-			var isValidCode = _userService.VerifyForgetPassword(_email, textBoxCode.Text);
+			var isValidCode = _userService.VerifyForgetPassword(textBoxEmail.Text, textBoxCode.Text);
 
-			if (isValidCode)
+			if (!isValidCode)
 			{
-				MessageBox.Show("OK");
+				MessageBox.Show("驗證碼錯誤或過期, 請重發驗證碼, 或是確認Email有無註冊!");
+				return;
 			}
-			else
-			{
-				MessageBox.Show("失敗");
-			}
+			
+			_userService.DeleteForgetPassword(textBoxEmail.Text);
+
+			var frm = new FormEditPassword(textBoxEmail.Text);
+			frm.Owner = this;
+			frm.ShowDialog();
 		}
 	}
 }

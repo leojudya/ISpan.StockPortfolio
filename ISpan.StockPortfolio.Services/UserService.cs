@@ -70,5 +70,15 @@ namespace ISpan.StockPortfolio.Services
 
 			return dbGuid.Equals(code.ToLower());
 		}
+
+		public void DeleteForgetPassword(string email)
+		{
+			_userRepository.DeleteForgetPassword(email);
+		}
+
+		public void UpdatePassword(string email, string password)
+		{
+			_userRepository.UpdatePassword(email, BC.HashPassword(password));
+		}
 	}
 }

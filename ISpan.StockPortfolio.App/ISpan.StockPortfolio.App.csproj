@@ -108,6 +108,12 @@
     <Compile Include="FormAddStockToPortfolio.Designer.cs">
       <DependentUpon>FormAddStockToPortfolio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormEditPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditPassword.Designer.cs">
+      <DependentUpon>FormEditPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEditStockToPortfolio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormAddStockToPortfolio.resx">
       <DependentUpon>FormAddStockToPortfolio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditPassword.resx">
+      <DependentUpon>FormEditPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEditStockToPortfolio.resx">
       <DependentUpon>FormEditStockToPortfolio.cs</DependentUpon>

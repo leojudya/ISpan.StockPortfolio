@@ -38,9 +38,10 @@
 			// 
 			// buttonCreateCode
 			// 
-			this.buttonCreateCode.Location = new System.Drawing.Point(112, 29);
+			this.buttonCreateCode.Location = new System.Drawing.Point(149, 36);
+			this.buttonCreateCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.buttonCreateCode.Name = "buttonCreateCode";
-			this.buttonCreateCode.Size = new System.Drawing.Size(97, 33);
+			this.buttonCreateCode.Size = new System.Drawing.Size(129, 41);
 			this.buttonCreateCode.TabIndex = 0;
 			this.buttonCreateCode.Text = "傳送驗證碼";
 			this.buttonCreateCode.UseVisualStyleBackColor = true;
@@ -48,25 +49,30 @@
 			// 
 			// textBoxCode
 			// 
-			this.textBoxCode.Location = new System.Drawing.Point(101, 157);
+			this.textBoxCode.Location = new System.Drawing.Point(135, 196);
+			this.textBoxCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBoxCode.Name = "textBoxCode";
-			this.textBoxCode.Size = new System.Drawing.Size(186, 22);
+			this.textBoxCode.Size = new System.Drawing.Size(247, 25);
 			this.textBoxCode.TabIndex = 1;
+			this.textBoxCode.Visible = false;
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(36, 160);
+			this.label1.Location = new System.Drawing.Point(48, 200);
+			this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(41, 12);
+			this.label1.Size = new System.Drawing.Size(52, 15);
 			this.label1.TabIndex = 2;
 			this.label1.Text = "驗證碼";
+			this.label1.Visible = false;
 			// 
 			// buttonVerify
 			// 
-			this.buttonVerify.Location = new System.Drawing.Point(134, 253);
+			this.buttonVerify.Location = new System.Drawing.Point(179, 316);
+			this.buttonVerify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.buttonVerify.Name = "buttonVerify";
-			this.buttonVerify.Size = new System.Drawing.Size(75, 23);
+			this.buttonVerify.Size = new System.Drawing.Size(100, 29);
 			this.buttonVerify.TabIndex = 3;
 			this.buttonVerify.Text = "驗證";
 			this.buttonVerify.UseVisualStyleBackColor = true;
@@ -74,33 +80,36 @@
 			// 
 			// textBoxEmail
 			// 
-			this.textBoxEmail.Location = new System.Drawing.Point(101, 110);
+			this.textBoxEmail.Location = new System.Drawing.Point(135, 138);
+			this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.textBoxEmail.Name = "textBoxEmail";
-			this.textBoxEmail.Size = new System.Drawing.Size(186, 22);
+			this.textBoxEmail.Size = new System.Drawing.Size(247, 25);
 			this.textBoxEmail.TabIndex = 1;
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(36, 113);
+			this.label2.Location = new System.Drawing.Point(48, 141);
+			this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(32, 12);
+			this.label2.Size = new System.Drawing.Size(41, 15);
 			this.label2.TabIndex = 2;
 			this.label2.Text = "Email";
 			// 
 			// FormForgetPassword
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(336, 317);
+			this.ClientSize = new System.Drawing.Size(448, 396);
 			this.Controls.Add(this.buttonVerify);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.textBoxEmail);
 			this.Controls.Add(this.textBoxCode);
 			this.Controls.Add(this.buttonCreateCode);
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "FormForgetPassword";
-			this.Text = "FormForgetPassword";
+			this.Text = "StockPortfolio - ForgetPassword";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

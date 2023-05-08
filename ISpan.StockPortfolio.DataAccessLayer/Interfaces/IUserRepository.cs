@@ -11,5 +11,7 @@ namespace ISpan.StockPortfolio.DataAccessLayer
 		int Insert(User user);
 		int Update(UserDto user);
 		ForgetPassword GetForgetPassword(string email);
+		void DeleteForgetPassword(string email);
+		void UpdatePassword(string email, string password);
 	}
 }
