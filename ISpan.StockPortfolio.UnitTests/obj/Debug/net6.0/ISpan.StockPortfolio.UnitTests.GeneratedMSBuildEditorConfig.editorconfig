@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ISpan.StockPortfolio.UnitTests
-build_property.ProjectDir = C:\Users\leoju\Desktop\stock\ISpan.StockPortfolio.UnitTests\
+build_property.ProjectDir = C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\ISpan.StockPortfolio.UnitTests\

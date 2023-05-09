@@ -24,6 +24,8 @@ namespace ISpan.StockPortfolio.App
 
 		private void textBoxPassword_Validating(object sender, CancelEventArgs e)
 		{
+			int minimumPasswordLength = 6;
+
 			if (string.IsNullOrEmpty(textBoxPassword.Text))
 			{
 				// Cancel the event and select the text to be corrected by the user.
@@ -43,6 +45,17 @@ namespace ISpan.StockPortfolio.App
 				// Set the ErrorProvider error with the text to display. 
 				this.errorProvider1.SetError(textBoxPassword, "You entered different password!");
 			}
+
+			if (textBoxPassword.Text.Length < minimumPasswordLength)
+			{
+				// Cancel the event and select the text to be corrected by the user.
+				e.Cancel = true;
+				textBoxPassword.Select(0, textBoxPassword.Text.Length);
+
+				// Set the ErrorProvider error with the text to display. 
+				this.errorProvider1.SetError(textBoxPassword, "密碼最少要六個字!");
+			}
+
 
 		}
 

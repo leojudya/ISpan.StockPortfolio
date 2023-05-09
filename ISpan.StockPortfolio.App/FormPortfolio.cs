@@ -44,7 +44,7 @@ namespace ISpan.StockPortfolio.App
 
 		private void FormPortfolio_Load(object sender, EventArgs e)
 		{
-			//timer1.Start();
+			timer1.Start();
 			Display();
 
 			dataGridView1.Columns["Name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
