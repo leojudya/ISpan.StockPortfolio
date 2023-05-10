@@ -34,5 +34,3 @@
 
 
 
-## 自動更新影片
-[Link](C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\Presentation\自動更新.mp4)
