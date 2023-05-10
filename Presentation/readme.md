@@ -35,8 +35,4 @@
 
 
 ## 自動更新影片
-
-
-<video width="320" height="240" controls fullscreen>
-    <source src="https://i.imgur.com/tyX3qfS.mp4" type="video/mp4">
-</video>
+[Link](C:\Users\ispan\Desktop\C#入門\ISpan.StockPortfolio\Presentation\自動更新.mp4)
