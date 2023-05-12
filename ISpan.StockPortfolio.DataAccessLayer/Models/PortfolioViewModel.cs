@@ -15,10 +15,10 @@ namespace ISpan.StockPortfolio.DataAccessLayer.Models
 		public string Symbol { get; set; }
 		[Display(Name = "漲跌")]
 		[DisplayName("漲跌")]
-		public decimal? UpAndDown => ClosingPrice != null ? MarketPrice - ClosingPrice : null;
+		public decimal? UpAndDown => ClosingPrice != null && MarketPrice != 0.00m && OpeningPrice != 0.00m ? MarketPrice - ClosingPrice : null;
 		[Display(Name = "漲跌幅度")]
 		[DisplayName("漲跌幅度")]
-		public decimal? UpAndDownPercentage => ClosingPrice != null ? (UpAndDown / ClosingPrice) : null;
+		public decimal? UpAndDownPercentage => UpAndDown != null ? (UpAndDown / ClosingPrice) : null;
 		[Display(Name = "開盤價")]
 		[DisplayName("開盤價")]
 		public decimal OpeningPrice { get; set; }

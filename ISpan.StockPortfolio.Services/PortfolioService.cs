@@ -13,9 +13,9 @@ namespace ISpan.StockPortfolio.Services
 	public class PortfolioService
 	{
 		private readonly IPortfolioRepository _portfolioRepository;
-		private static readonly TwseStockInfoService _twseStockInfoService = new TwseStockInfoService();
-		private static MapperConfiguration _mapperConfiguration;
-		private static IMapper _mapper;
+		private readonly TwseStockInfoService _twseStockInfoService = new TwseStockInfoService();
+		private MapperConfiguration _mapperConfiguration;
+		private IMapper _mapper;
 
 		public PortfolioService()
 		{

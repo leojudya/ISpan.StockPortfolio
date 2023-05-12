@@ -1,4 +1,7 @@
-﻿namespace ISpan.StockPortfolio.Services
+﻿using System;
+using System.Text.RegularExpressions;
+
+namespace ISpan.StockPortfolio.Services
 {
 	public class ValidatorHelper
 	{
@@ -39,6 +42,13 @@
 				return false;
 			}
 
+			Regex regex = new Regex(@"^\d{1,16}\.*\d{0,2}$");
+			if (!regex.IsMatch(buyPrice))
+			{
+				errorMessage = "價格格式錯誤";
+				return false;
+			}
+
 			errorMessage = "";
 			return true;
 		}
@@ -61,9 +71,20 @@
 				return false;
 			}
 
+			//try
+			//{
+			//	int.Parse(quantity);
+			//}
+			//catch (OverflowException ex)
+			//{
+			//	errorMessage = ex.Message;
+			//	return false;
+			//}
+
 			errorMessage = "";
 			return true;
 		}
+
 
 	}
 }

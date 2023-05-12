@@ -63,6 +63,8 @@ namespace ISpan.StockPortfolio.App
 
 		private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
 		{
+			if (e.Value == null) return;
+
 			if (this.dataGridView1.Columns[e.ColumnIndex].Name == "UpAndDownPercentage" || this.dataGridView1.Columns[e.ColumnIndex].Name == "UpAndDown")
 			{
 				if ((decimal)e.Value > 0m) e.CellStyle.ForeColor = Color.Red;
@@ -71,7 +73,6 @@ namespace ISpan.StockPortfolio.App
 
 			if (this.dataGridView1.Columns[e.ColumnIndex].Name == "Profit")
 			{
-				if (e.Value == null) return;
 				if ((int)e.Value > 0m) e.CellStyle.ForeColor = Color.Red;
 				if ((int)e.Value < 0m) e.CellStyle.ForeColor = Color.Green;
 			}

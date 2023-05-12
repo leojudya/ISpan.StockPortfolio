@@ -13,8 +13,8 @@ namespace ISpan.StockPortfolio.Services
 	{
 		private static readonly string apiTwseUrl = "https://mis.twse.com.tw/stock/api/getStockInfo.jsp";
 		private static readonly HttpClient client = new HttpClient();
-		private static MapperConfiguration _mapperConfiguration;
-		private static IMapper _mapper;
+		private MapperConfiguration _mapperConfiguration;
+		private IMapper _mapper;
 
 		public TwseStockInfoService()
 		{

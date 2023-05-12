@@ -95,7 +95,7 @@
 			this.textBoxPassword.PasswordChar = '*';
 			this.textBoxPassword.Size = new System.Drawing.Size(219, 32);
 			this.textBoxPassword.TabIndex = 2;
-			this.textBoxPassword.Text = "123";
+			this.textBoxPassword.Text = "123456";
 			this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxPassword_KeyDown);
 			this.textBoxPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPassword_Validating);
 			this.textBoxPassword.Validated += new System.EventHandler(this.textBoxPassword_Validated);
