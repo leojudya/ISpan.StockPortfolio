@@ -17,7 +17,7 @@ namespace ISpan.StockPortfolio.Common
 										  useSsl: true);
 
 				client.Authenticate("iamstupidpeople@gmail.com",
-									"wrhbdeuarmoblfmw");
+									"<enter application password here>");
 				client.Send(emailMessage);
 				client.Disconnect(true);
 			}
